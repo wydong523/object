@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#eaf4f5"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48dip"
+        android:background="@drawable/titlebg" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/workorder_actual_fault_return_btn"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/workorder_actual_fault_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工单操作"
+                android:textColor="@color/white"
+                android:textSize="@dimen/standard_padding" />
+
+            <TextView
+                android:id="@+id/workorder_actual_fault_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="故障详情"
+                android:textColor="@color/white"
+                android:textSize="@dimen/half_padding" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/workorder_actual_fault_return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/return_btn"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_class"
+            android:layout_alignBottom="@+id/workorder_actual_fault_class"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="故  障  类 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView1"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择故障类"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_fault_class_btn"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_date"
+            android:layout_alignBottom="@+id/workorder_actual_fault_date"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="故障日期 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView2"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择故障日期"
+            android:inputType="date"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_fault_date_btn"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_remark"
+            android:layout_alignBottom="@+id/workorder_actual_fault_remark"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="备        注 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView3"
+            android:background="@drawable/edit_bg2"
+            android:hint="请输入备注"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_subclass"
+            android:layout_alignBottom="@+id/workorder_actual_fault_subclass"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="子        类 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_subclass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView4"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择子类"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_fault_subclass_btn"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_problem"
+            android:layout_alignBottom="@+id/workorder_actual_fault_problem"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="问        题 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_problem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView5"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择问题"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_fault_problem_btn"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_cause"
+            android:layout_alignBottom="@+id/workorder_actual_fault_cause"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="原        因 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_cause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView6"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择原因"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_fault_cause_btn"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_fault_maintenance"
+            android:layout_alignBottom="@+id/workorder_actual_fault_maintenance"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="维        修 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_fault_maintenance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView7"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择维修"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_fault_maintenance_btn"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="150dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <Button
+            android:id="@+id/workorder_add_actual_fault_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/detailbtn"
+            android:text="添加物料信息"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/workorder_del_actual_fault_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/workorder_modify_actual_fault_btn"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/detailbtn"
+            android:text="删除物料信息"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/workorder_modify_actual_fault_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignBaseline="@+id/workorder_add_actual_fault_btn"
+            android:layout_alignBottom="@+id/workorder_add_actual_fault_btn"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/detailbtn"
+            android:text="修改物料信息"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

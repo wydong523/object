@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eaf4f5"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48dip"
+        android:background="@drawable/titlebg" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/workorder_actual_material_return_btn"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/workorder_actual_material_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工单操作"
+                android:textColor="@color/white"
+                android:textSize="@dimen/standard_padding" />
+
+            <TextView
+                android:id="@+id/workorder_actual_material_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="物料详情"
+                android:textColor="@color/white"
+                android:textSize="@dimen/half_padding" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/workorder_actual_material_return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/return_btn"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_material_project"
+            android:layout_alignBottom="@+id/workorder_actual_material_project"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="项        目 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_material_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView1"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择项目"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_material_project_button"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_material_warehouse"
+            android:layout_alignBottom="@+id/workorder_actual_material_warehouse"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="仓        库 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_material_warehouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView2"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请选择仓库信息"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_material_warehouse_button"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="150dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <Button
+            android:id="@+id/workorder_add_actual_material_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/detailbtn"
+            android:text="添加物料信息"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/workorder_del_actual_material_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/workorder_modify_actual_material_btn"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/detailbtn"
+            android:text="删除物料信息"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/workorder_modify_actual_material_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignBaseline="@+id/workorder_add_actual_material_btn"
+            android:layout_alignBottom="@+id/workorder_add_actual_material_btn"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/detailbtn"
+            android:text="修改物料信息"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

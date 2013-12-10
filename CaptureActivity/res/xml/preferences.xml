@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="系统配置" >
+        <EditTextPreference
+            android:dialogTitle="IP配置"
+            android:key="ip_preference"
+            android:summary="IP格式:192.168.0.1"
+            android:title="IP配置" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="功能设置" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="voice"
+            android:summary="已开启提示声音"
+            android:title="提示声音" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="checkup"
+            android:summary="启动程序时检查版本更新"
+            android:title="启动检查更新" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="缓存设置" >
+        <Preference
+            android:key="cache"
+            android:summary="0KB"
+            android:title="清除缓存" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="其他" >
+        <Preference
+            android:key="feedback"
+            android:summary="用户意见反馈"
+            android:title="意见反馈" />
+        <Preference
+            android:key="update"
+            android:summary="检测是否有新版本"
+            android:title="新版本检测" />
+        <Preference
+            android:key="about"
+            android:summary="关于我们、版权信息"
+            android:title="关于我们" />
+    </PreferenceCategory>
+
+    <!-- <PreferenceCategory android:title="@string/preferences_scanning_title"> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_decode_1D" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_decode_1D_title"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_decode_QR" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_decode_QR_title"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_decode_Data_Matrix" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_decode_Data_Matrix_title"/> -->
+    <!-- </PreferenceCategory> -->
+    <!-- <PreferenceCategory android:title="@string/preferences_actions_title"> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_play_beep" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_play_beep_title"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_vibrate" -->
+    <!-- android:defaultValue="false" -->
+    <!-- android:title="@string/preferences_vibrate_title"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_copy_to_clipboard" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_copy_to_clipboard_title"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_remember_duplicates" -->
+    <!-- android:defaultValue="false" -->
+    <!-- android:title="@string/preferences_remember_duplicates_title" -->
+    <!-- android:summary="@string/preferences_remember_duplicates_summary"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_supplemental" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_supplemental_title" -->
+    <!-- android:summary="@string/preferences_supplemental_summary"/> -->
+    <!-- </PreferenceCategory> -->
+    <!-- <PreferenceCategory android:title="@string/preferences_result_title"> -->
+    <!-- <EditTextPreference -->
+    <!-- android:key="preferences_custom_product_search" -->
+    <!-- android:title="@string/preferences_custom_product_search_title" -->
+    <!-- android:summary="@string/preferences_custom_product_search_summary"/> -->
+    <!-- </PreferenceCategory> -->
+    <!-- <PreferenceCategory android:title="@string/preferences_general_title"> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_front_light" -->
+    <!-- android:defaultValue="false" -->
+    <!-- android:title="@string/preferences_front_light_title" -->
+    <!-- android:summary="@string/preferences_front_light_summary"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_auto_focus" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_auto_focus_title"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_bulk_mode" -->
+    <!-- android:defaultValue="false" -->
+    <!-- android:title="@string/preferences_bulk_mode_title" -->
+    <!-- android:summary="@string/preferences_bulk_mode_summary"/> -->
+    <!-- <ListPreference -->
+    <!-- android:key="preferences_search_country" -->
+    <!-- android:defaultValue="-" -->
+    <!-- android:entries="@array/country_codes" -->
+    <!-- android:entryValues="@array/country_codes" -->
+    <!-- android:title="@string/preferences_search_country"/> -->
+    <!-- </PreferenceCategory> -->
+    <!-- <PreferenceCategory android:title="@string/preferences_device_bug_workarounds_title"> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_disable_continuous_focus" -->
+    <!-- android:defaultValue="true" -->
+    <!-- android:title="@string/preferences_disable_continuous_focus_title" -->
+    <!-- android:summary="@string/preferences_disable_continuous_focus_summary"/> -->
+    <!-- <CheckBoxPreference -->
+    <!-- android:key="preferences_disable_exposure" -->
+    <!-- android:defaultValue="false" -->
+    <!-- android:title="@string/preferences_disable_exposure_title"/> -->
+    <!-- </PreferenceCategory> -->
+    <!-- <PreferenceCategory android:title="@string/preferences_try_bsplus"> -->
+    <!-- <com.google.zxing.client.android.pref.BSPlusPreference -->
+    <!-- android:title="@string/preferences_try_bsplus" -->
+    <!-- android:summary="@string/preferences_try_bsplus_summary"/> -->
+    <!-- </PreferenceCategory> -->
+
+</PreferenceScreen>

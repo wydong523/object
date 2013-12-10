@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/work_plan_linearlayout_footer"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:layout_margin="20dip"
+    android:orientation="horizontal" >
+
+    <RadioButton
+        android:id="@+id/main_footbar_news"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/abs__background_holo_light"
+        android:button="@null"
+        android:drawableTop="@drawable/cgsq_sel"
+        android:gravity="center"
+        android:padding="0dip"
+        android:paddingBottom="3dip"
+        android:paddingTop="1dip"
+        android:singleLine="true"
+        android:text="任务"
+        android:textColor="@color/red" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@drawable/frame_button_cutline" />
+
+    <RadioButton
+        android:id="@+id/main_footbar_news"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/abs__background_holo_light"
+        android:button="@null"
+        android:drawableTop="@drawable/cgsq_sel"
+        android:gravity="center"
+        android:padding="0dip"
+        android:paddingBottom="3dip"
+        android:paddingTop="1dip"
+        android:singleLine="true"
+        android:text="人工"
+        android:textColor="@color/red" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@drawable/frame_button_cutline" />
+
+    <RadioButton
+        android:id="@+id/main_footbar_news"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/abs__background_holo_light"
+        android:button="@null"
+        android:drawableTop="@drawable/cgsq_sel"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:padding="0dip"
+        android:paddingBottom="3dip"
+        android:paddingTop="1dip"
+        android:singleLine="true"
+        android:text="物料"
+        android:textColor="@color/red" />
+    <!-- android:drawableTop="@drawable/widget_bar_news" -->
+    <!-- <RadioButton -->
+    <!-- android:id="@+id/main_footbar_question" -->
+    <!-- style="@style/main_footbar_radio" -->
+    <!-- android:drawableTop="@drawable/widget_bar_question" /> -->
+
+</LinearLayout>

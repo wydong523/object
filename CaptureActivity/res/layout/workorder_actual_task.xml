@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eaf4f5"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48dip"
+        android:background="@drawable/titlebg" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/workorder_actual_task_return_btn"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/workorder_plan_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工单操作"
+                android:textColor="@color/white"
+                android:textSize="@dimen/standard_padding" />
+
+            <TextView
+                android:id="@+id/workorder_plan_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="任务详情"
+                android:textColor="@color/white"
+                android:textSize="@dimen/half_padding" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/workorder_actual_task_return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/return_btn"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <!-- 任务序号 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <EditText
+            android:id="@+id/workorder_actual_task_wonum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView1"
+            android:background="@drawable/edit_bg2"
+            android:hint="请输入任务序号"
+            android:inputType="number"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_task_wonum"
+            android:layout_alignBottom="@+id/workorder_actual_task_wonum"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="任务序号 " />
+    </RelativeLayout>
+
+    <!-- 描述(文字) -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_task_description"
+            android:layout_alignBottom="@+id/workorder_actual_task_description"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="描        述 " />
+
+        <EditText
+            android:id="@+id/workorder_actual_task_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView2"
+            android:background="@drawable/edit_bg2"
+            android:focusable="false"
+            android:hint="请输入描述信息"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/workorder_actual_task_description_button"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_select_btn" />
+    </RelativeLayout>
+
+    <!-- 估计持续时间 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip" >
+
+        <EditText
+            android:id="@+id/workorder_actual_task_continuous_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView3"
+            android:background="@drawable/edit_bg2"
+            android:hint="请输入持续时间"
+            android:inputType="number"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/workorder_actual_task_continuous_time"
+            android:layout_alignBottom="@+id/workorder_actual_task_continuous_time"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dip"
+            android:text="持续时间 " />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="150dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <Button
+            android:id="@+id/workorder_add_actual_task_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/detailbtn"
+            android:text="添加实际任务"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/workorder_del_actual_task_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/workorder_modify_actual_task_btn"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/detailbtn"
+            android:text="删除实际任务"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/workorder_modify_actual_task_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_alignBaseline="@+id/workorder_add_actual_task_btn"
+            android:layout_alignBottom="@+id/workorder_add_actual_task_btn"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/detailbtn"
+            android:text="修改实际任务"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

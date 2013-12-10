@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="@drawable/text_color_selector"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/pr_list_operate"
+        style="@style/pr_list_img"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="22dp" 
+        android:background="@drawable/arrow_nor"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
+
+    <TextView
+        android:id="@+id/pr_list_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/pr_list_description"
+        android:layout_marginTop="8dip"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="我是工单模块测试数据"
+        android:textColor="@color/listitem_title"
+        android:textSize="@dimen/standard_padding"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pr_list_description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/pr_list_name"
+        android:layout_toLeftOf="@+id/pr_list_operate"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="我是工单测试数据"
+        android:textColor="@color/listitem_discription"
+        android:textSize="@dimen/half_padding" />
+
+</RelativeLayout>

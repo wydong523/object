@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@drawable/titlebg" >
+
+        <Button
+            android:id="@+id/pr_line_return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/return_btn"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/pr_line_return_btn"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/pr_line_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="采购申请明细操作"
+                android:textColor="@color/white"
+                android:textSize="@dimen/standard_padding" />
+
+            <TextView
+                android:id="@+id/pr_line_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/half_padding" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/pr_line_detail_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip" >
+
+                <EditText
+                    android:id="@+id/pr_line_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView1"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入名称"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_description"
+                    android:layout_alignBottom="@+id/pr_line_description"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="名        称" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip" >
+
+                <EditText
+                    android:id="@+id/pr_line_udmodel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入型号规格"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_udmodel"
+                    android:layout_alignBottom="@+id/pr_line_udmodel"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="型号规格" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:visibility="gone" >
+
+                <EditText
+                    android:id="@+id/pr_line_classstructureid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView3"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入分类"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_classstructureid"
+                    android:layout_alignBottom="@+id/pr_line_classstructureid"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="分        类" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip" >
+
+                <EditText
+                    android:id="@+id/pr_line_orderqty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView4"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入数量"
+                    android:inputType="number"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_orderqty"
+                    android:layout_alignBottom="@+id/pr_line_orderqty"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="数        量" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip" >
+
+                <EditText
+                    android:id="@+id/pr_line_orderunit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView5"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入计量单位"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_orderunit"
+                    android:layout_alignBottom="@+id/pr_line_orderunit"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="计量单位" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip" >
+
+                <EditText
+                    android:id="@+id/pr_line_unitcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView7"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入含税单价"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_unitcost"
+                    android:layout_alignBottom="@+id/pr_line_unitcost"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="含税单价" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:visibility="gone" >
+
+                <EditText
+                    android:id="@+id/pr_line_udaccepter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView6"
+                    android:background="@drawable/edit_bg2"
+                    android:hint="请输入验收人"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/edit_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/pr_line_udaccepter"
+                    android:layout_alignBottom="@+id/pr_line_udaccepter"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="7dip"
+                    android:text="验  收  人" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="30dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true" >
+
+                <Button
+                    android:id="@+id/pr_multifunction_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="30dip"
+                    android:layout_marginTop="30dip"
+                    android:background="@drawable/detailbtn"
+                    android:text="添加采购申请明细"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/pr_line_del_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/pr_line_modify_button"
+                    android:layout_marginBottom="30dip"
+                    android:background="@drawable/detailbtn"
+                    android:text="删除采购申请明细"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/pr_line_modify_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="20dip"
+                    android:layout_marginTop="30dip"
+                    android:background="@drawable/detailbtn"
+                    android:text="修改采购申请明细"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

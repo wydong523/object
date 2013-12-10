@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white" >
+
+    <include layout="@layout/progress_bar_layout" />
+
+    <com.google.zxing.client.android.view.pulllist.XListView
+        android:id="@+id/workorder_plan_task_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/line_blue" />
+
+    <com.google.zxing.client.android.view.pulllist.XListView
+        android:id="@+id/workorder_plan_personnel_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/line_blue"
+        android:visibility="gone" />
+
+    <com.google.zxing.client.android.view.pulllist.XListView
+        android:id="@+id/workorder_plan_material_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/line_blue"
+        android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/share_via_barcode"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/work_plan_linearlayout_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/bottom_bg_nor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/workorder_plan_task_btn"
+            style="@style/radiobutton"
+            android:drawableTop="@drawable/task_btn"
+            android:text="任务" />
+
+        <ImageView
+            android:layout_width="1dip"
+            android:layout_height="fill_parent"
+            android:background="@color/white" />
+
+        <RadioButton
+            android:id="@+id/workorder_plan_personnel_btn"
+            style="@style/radiobutton"
+            android:drawableTop="@drawable/personnel_btn"
+            android:text="人工" />
+
+        <ImageView
+            android:layout_width="1dip"
+            android:layout_height="fill_parent"
+            android:background="@color/white" />
+
+        <RadioButton
+            android:id="@+id/workorder_plan_material_btn"
+            style="@style/radiobutton"
+            android:drawableTop="@drawable/material_btn"
+            android:text="物料" />
+    </LinearLayout>
+
+</RelativeLayout>

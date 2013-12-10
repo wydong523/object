@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eaf4f5"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:id="@+id/login_activity_linearlay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/work_wonum_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <EditText
+                android:id="@+id/work_wonum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView1"
+                android:background="@drawable/edit_bg2"
+                android:hint="请输入工单编号"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_wonum"
+                android:layout_alignBottom="@+id/work_wonum"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="工单编号 " />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <EditText
+                android:id="@+id/work_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView2"
+                android:background="@drawable/edit_bg2"
+                android:hint="(必填项)工单描述 "
+                android:singleLine="true"
+                android:textColorHint="@color/red" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_description"
+                android:layout_alignBottom="@+id/work_description"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="工单描述 " />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_worktype"
+                android:layout_alignBottom="@+id/work_worktype"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="工作类型 " />
+
+            <EditText
+                android:id="@+id/work_worktype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView4"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="(必填项)工作类型"
+                android:singleLine="true"
+                android:textColorHint="@color/red" />
+
+            <ImageButton
+                android:id="@+id/work_worktype_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_status"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="状        态 " />
+
+            <EditText
+                android:id="@+id/work_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView5"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择状态"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/work_status_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_location"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="位        置 " />
+
+            <EditText
+                android:id="@+id/work_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView6"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择位置"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/location_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_asset"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="资        产 " />
+
+            <EditText
+                android:id="@+id/work_asset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView7"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择资产"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/asset_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_category"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="分        类 " />
+
+            <EditText
+                android:id="@+id/work_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView8"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="(必填项)分类"
+                android:singleLine="true"
+                android:textColorHint="@color/red" />
+
+            <ImageButton
+                android:id="@+id/category_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_site"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="地        点 " />
+
+            <EditText
+                android:id="@+id/work_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView9"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择地点"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/site_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_fault_category"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="故障类别 " />
+
+            <EditText
+                android:id="@+id/work_fault_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView10"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择故障类别"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/fault_category_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView11"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_fault_subclass"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="故障子类 " />
+
+            <EditText
+                android:id="@+id/work_fault_subclass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView11"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择故障子类"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/fault_subclass_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView12"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_question_code"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="问答代码 " />
+
+            <EditText
+                android:id="@+id/work_question_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView12"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择问答代码"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/question_code_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView13"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_homework_plan"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="作业计划 " />
+
+            <EditText
+                android:id="@+id/work_homework_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView13"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择标准作业计划"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/homework_plan_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_prevention_maintenance"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="预防维护 " />
+
+            <EditText
+                android:id="@+id/work_prevention_maintenance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView14"
+                android:background="@drawable/edit_bg2"
+                android:hint="请输入防维护 "
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/prevention_maintenance_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView15"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_security_plan"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="安全计划 " />
+
+            <EditText
+                android:id="@+id/work_security_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView15"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择安全计划"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/security_plan_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView16"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_priority"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="优  先  级 " />
+
+            <EditText
+                android:id="@+id/work_priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView16"
+                android:background="@drawable/edit_bg2"
+                android:hint="(必填项)优先级"
+                android:singleLine="true"
+                android:inputType="numberDecimal"
+                android:textColorHint="@color/red" />
+
+            <ImageButton
+                android:id="@+id/priority_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView17"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_pm"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="PM           " />
+
+            <EditText
+                android:id="@+id/work_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView17"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择PM"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/pm_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView18"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_report_person"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="汇  报  人 " />
+
+            <EditText
+                android:id="@+id/work_report_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView18"
+                android:background="@drawable/edit_bg2"
+                android:hint="请输入汇报人"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/report_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView19"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_responsibility_person"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="负  责  人 " />
+
+            <EditText
+                android:id="@+id/work_responsibility_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView19"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="(必填项)负责人"
+                android:singleLine="true"
+                android:textColorHint="@color/red" />
+
+            <ImageButton
+                android:id="@+id/responsibility_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView20"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_charge_person"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="主  管  人 " />
+
+            <EditText
+                android:id="@+id/work_charge_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView20"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="(必填项)主管人"
+                android:singleLine="true"
+                android:textColorHint="@color/red" />
+
+            <ImageButton
+                android:id="@+id/charge_person_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView21"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_report_time"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="报告时间 " />
+
+            <EditText
+                android:id="@+id/work_report_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView21"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="系统时间"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/report_time_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView22"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_impact_person"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="受影响人 " />
+
+            <EditText
+                android:id="@+id/work_impact_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView22"
+                android:background="@drawable/edit_bg2"
+                android:hint="请输入受影响人"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/report_time_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/textView23"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_phone"
+                android:layout_alignBottom="@+id/work_status"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="电        话 " />
+
+            <EditText
+                android:id="@+id/work_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView23"
+                android:background="@drawable/edit_bg2"
+                android:hint="请输入联系人电话"
+                android:inputType="phone"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/report_time_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_select_btn"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/edit_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/work_statusdate"
+                android:layout_alignBottom="@+id/work_statusdate"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="7dip"
+                android:text="状态日期 " />
+
+            <EditText
+                android:id="@+id/work_statusdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView3"
+                android:background="@drawable/edit_bg2"
+                android:focusable="false"
+                android:hint="请选择日期"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/work_statusdate_button"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/date_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="150dip"
+            android:focusable="true"
+            android:focusableInTouchMode="true" >
+
+            <Button
+                android:id="@+id/work_add_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/detailbtn"
+                android:text="添加工单"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/work_del_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/work_modify_btn"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/detailbtn"
+                android:text="删除工单"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/work_modify_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_alignBaseline="@+id/work_add_btn"
+                android:layout_alignBottom="@+id/work_add_btn"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/detailbtn"
+                android:text="修改工单"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

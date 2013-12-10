@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login_bg"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:id="@+id/login_activity_linearlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <!-- Logo -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/login_logo_ImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dip"
+                android:src="@drawable/login_logo" />
+
+            <Button
+                android:id="@+id/login_set_Button"
+                android:layout_width="50dip"
+                android:layout_height="40dip"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dip"
+                android:background="@drawable/setting_btn"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_relativeLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" >
+
+            <include layout="@layout/progress_bar_layout" />
+            <!-- User's name -->
+
+            <EditText
+                android:id="@+id/login_username_EditText"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/login_logo_ImageView"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textfield_comment"
+                android:hint="@string/login_username_hint"
+                android:singleLine="true"
+                android:visibility="visible" />
+
+            <!-- User's password -->
+
+            <EditText
+                android:id="@+id/login_password_EditText"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/login_username_EditText"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textfield_comment"
+                android:hint="@string/login_password_hint"
+                android:password="true"
+                android:singleLine="true"
+                android:visibility="visible" />
+
+            <!-- Login button -->
+
+            <CheckBox
+                android:id="@+id/login_remember_checkbox"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/login_password_EditText"
+                android:checked="true"
+                android:text="@string/remember_me"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/button"
+                android:textSize="@dimen/half_padding"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/login_online_checkbox"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_alignBaseline="@+id/login_remember_checkbox"
+                android:layout_alignBottom="@+id/login_remember_checkbox"
+                android:layout_toRightOf="@+id/login_remember_checkbox"
+                android:checked="true"
+                android:text="@string/online_login"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/button"
+                android:textSize="@dimen/half_padding"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/login_login_Button"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/login_remember_checkbox"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/bt_bg"
+                android:text="@string/login_Button"
+                android:textColor="@color/black_font"
+                android:textSize="@dimen/standard_padding"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/login_manager_Button"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/login_login_Button"
+                android:layout_marginTop="31dp"
+                android:background="@drawable/bt_bg"
+                android:text="@string/login_manager"
+                android:textColor="@color/black_font"
+                android:textSize="@dimen/standard_padding"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
