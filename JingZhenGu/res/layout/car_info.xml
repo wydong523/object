@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/global_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <include layout="@layout/logo_title_include" />
+
+        <RelativeLayout
+            android:id="@+id/car_info_name_layout"
+            style="@style/editview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dip" >
+
+            <TextView
+                android:id="@+id/car_info_makename"
+                style="@style/car_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                style="@style/car_info_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/car_info_type_layout"
+            style="@style/editview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_marginTop="10dip" >
+
+            <TextView
+                android:id="@+id/car_info_modelname"
+                style="@style/car_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                style="@style/car_info_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/car_info_type_level_layout"
+            style="@style/editview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_marginTop="10dip" >
+
+            <TextView
+                android:id="@+id/car_info_stylename"
+                style="@style/car_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                style="@style/car_info_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/editview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_marginTop="30dip"
+            android:background="@drawable/bg_input" >
+
+            <TextView
+                android:id="@+id/car_mileage"
+                style="@style/car_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="行驶公里" />
+
+            <Button
+                android:id="@+id/line"
+                android:layout_width="1dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="5dip"
+                android:layout_toRightOf="@+id/car_mileage"
+                android:background="@drawable/shadow_long" />
+
+            <EditText
+                android:id="@+id/car_info_mileage"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/car_mileage"
+                android:layout_alignBottom="@+id/car_mileage"
+                android:layout_toRightOf="@+id/line"
+                android:background="@null"
+                android:numeric="integer"
+                android:singleLine="true"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="公里"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/editview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/bg_input" >
+
+            <TextView
+                android:id="@+id/car_year_brand"
+                style="@style/car_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上牌年份" />
+
+            <Button
+                android:id="@+id/line"
+                android:layout_width="1dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="5dip"
+                android:layout_toRightOf="@+id/car_year_brand"
+                android:background="@drawable/shadow_long" />
+
+            <EditText
+                android:id="@+id/car_info_year_month_edit"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/car_year_brand"
+                android:layout_alignBottom="@+id/car_year_brand"
+                android:layout_toRightOf="@+id/line"
+                android:background="@null"
+                android:enabled="false"
+                android:singleLine="true"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+
+            <Button
+                android:id="@+id/car_info_year_month_btn"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/arrow" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/bottom_btn_include" />
+
+</LinearLayout>

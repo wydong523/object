@@ -1,0 +1,85 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="car_info_text">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:textColor">@color/car_info</item>
+        <item name="android:textSize">@dimen/standard_padding</item>
+    </style>
+
+    <style name="car_info_checkbox">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">10dip</item>
+        <item name="android:background">@drawable/check</item>
+    </style>
+
+    <style name="editview_layout">
+        <item name="android:layout_marginTop">15dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item> <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item> <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item> <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item> <!-- 模糊 -->
+    </style>
+
+    <style name="editview_style">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/car_info</item>
+        <item name="android:textSize">@dimen/standard_padding</item>
+    </style>
+
+    <style name="textview_style">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/car_info</item>
+        <item name="android:textSize">@dimen/standard_padding</item>
+    </style>
+
+    <style name="textview_blackfont" parent="textview_style">
+        <item name="android:textColor">@color/black_font</item>
+        <item name="android:layout_marginLeft">10dip</item>
+    </style>
+
+    <style name="flag_btn_style">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@drawable/point_blue</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">@dimen/margin_left</item>
+    </style>
+    
+    <style name="layout_click">
+        <item name="android:background">@drawable/layout_click</item>
+    </style>
+
+</resources>

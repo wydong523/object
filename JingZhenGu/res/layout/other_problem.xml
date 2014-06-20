@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip" >
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/title_04" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="25dip"
+                    android:text="没有其他问题"
+                    android:textColor="@color/car_info"
+                    android:textSize="@dimen/standard_padding" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/split_line1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip" >
+
+                <Button
+                    android:id="@+id/traffic_problems_flag"
+                    style="@style/flag_btn_style"
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:visibility="invisible" >
+                </Button>
+
+                <TextView
+                    style="@style/textview_blackfont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/traffic_problems_flag"
+                    android:text="@string/traffic_problems" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/split_line1" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <CheckBox
+                    android:id="@+id/run_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run_ok"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/run_exp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run_exp"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/run_leaning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run_leaning"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/brake_problem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/brake_problem"
+                    android:textColor="@color/black_font" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip" >
+
+                <Button
+                    android:id="@+id/chassis_problem_flag"
+                    style="@style/flag_btn_style"
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:visibility="invisible" >
+                </Button>
+
+                <TextView
+                    style="@style/textview_blackfont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/chassis_problem_flag"
+                    android:text="@string/chassis_problem" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/split_line1" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <CheckBox
+                    android:id="@+id/chassis_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chassis_ok"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/chassis_drag_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chassis_drag_bottom"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/suspension_problem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/suspension_problem"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/shock_absorber_problem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shock_absorber_problem"
+                    android:textColor="@color/black_font" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip" >
+
+                <Button
+                    android:id="@+id/equipment_problems_flag"
+                    style="@style/flag_btn_style"
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:visibility="invisible" >
+                </Button>
+
+                <TextView
+                    style="@style/textview_blackfont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/equipment_problems_flag"
+                    android:text="@string/equipment_problems" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/split_line1" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <CheckBox
+                    android:id="@+id/electron_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_1"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_2"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_3"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_4"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_5"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_6"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_7"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_8"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_9"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_10"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_11"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_12"
+                    android:textColor="@color/black_font" />
+
+                <CheckBox
+                    android:id="@+id/electron_13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electron_13"
+                    android:textColor="@color/black_font" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/bottom_btn_include" />
+    </LinearLayout>
+
+</ScrollView>

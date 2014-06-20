@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <item name="no_select" type="id"/>
+    <item name="makelist" type="id"/>
+    <item name="modellist" type="id"/>
+    <item name="stylelist" type="id"/>
+    <item name="provinceList" type="id"/>
+    <item name="cityList" type="id"/>
+    <item name="pricerange" type="id"/>
+
+</resources>

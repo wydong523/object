@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/global_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/bg_white" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/title_01" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="25dip"
+                android:text="@string/facade_tool"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/split_line1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ListView
+                android:id="@+id/facade_list"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_white"
+                android:divider="@drawable/split_line1"
+                android:dividerHeight="1dip"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingRight="5dip"
+                android:scrollbars="none" />
+
+            <SlidingDrawer
+                android:id="@+id/facade_carriages_drawer"
+                android:layout_width="250dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/facade_carriages_list_content"
+                android:handle="@+id/facade_carriages_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/facade_carriages_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/facade_carriages_list_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+
+            <SlidingDrawer
+                android:id="@+id/facade_car_top_drawer"
+                android:layout_width="250dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/facade_car_top_content"
+                android:handle="@+id/facade_car_top_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/facade_car_top_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/facade_car_top_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+
+            <!-- 损伤类型 剐蹭、碰撞 -->
+
+            <SlidingDrawer
+                android:id="@+id/facade_car_injure_type_drawer"
+                android:layout_width="250dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/facade_car_injure_type_content"
+                android:handle="@+id/facade_car_injure_type_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/facade_car_injure_type_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/facade_car_injure_type_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+
+            <!-- 剐蹭选项列表 -->
+
+            <SlidingDrawer
+                android:id="@+id/facade_car_injure_typelist_drawer"
+                android:layout_width="125dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/facade_car_injure_typelist_content"
+                android:handle="@+id/facade_car_injure_typelist_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/facade_car_injure_typelist_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/facade_car_injure_typelist_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+
+            <!-- 碰撞选项列表 -->
+
+            <SlidingDrawer
+                android:id="@+id/facade_car_injure_collisionlist_drawer"
+                android:layout_width="125dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/facade_car_injure_collisionlist_content"
+                android:handle="@+id/facade_car_injure_collisionlist_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/facade_car_injure_collisionlist_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/facade_car_injure_collisionlist_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

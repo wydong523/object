@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分类列表标题头布局 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_header"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/left_line"
+        android:layout_width="1dip"
+        android:layout_height="25dip"
+        android:background="@drawable/shadow_long"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="25dip"
+        android:layout_toRightOf="@+id/left_line"
+        android:background="@color/white"
+        android:paddingLeft="13dip"
+        android:textColor="#3399cc" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_above="@+id/header"
+        android:background="@drawable/split_line1"
+        android:contentDescription="@string/app_name" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/header"
+        android:background="@drawable/split_line1"
+        android:contentDescription="@string/app_name" />
+
+</RelativeLayout>

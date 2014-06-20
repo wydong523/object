@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JingZhenGu</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="A">A</string>
+    <string name="B">B</string>
+    <string name="C">C</string>
+    <string name="D">D</string>
+    <string name="E">E</string>
+    <string name="head_title">若你的车辆属于</string>
+    <string name="a_info">级车况 价格约为以上区间的最高价格</string>
+    <string name="b_info">级车况 价格预计在A级基础上下降4%</string>
+    <string name="c_info">级车况 价格预计在A级基础上继续下降10%</string>
+    <string name="d_info">级车况 价格预计在A级基础上再次下降17%</string>
+    <string name="e_head">如果是</string>
+    <string name="e_end">级车况 不好意思亲，劝您还是别卖了&#8230;</string>
+    <string name="registration_site">上牌地点</string>
+    <string name="car_number">车牌号</string>
+    <string name="car_color">颜色选择</string>
+    <string name="insurance_date">保险到期日</string>
+    <string name="annual_inspection_date">年检到期日</string>
+    <string name="actual_price">实际购车价</string>
+    <string name="facade">外观</string>
+    <string name="upholstery">内饰</string>
+    <string name="impetus">动力</string>
+    <string name="other">其他</string>
+    <string name="facade_tool">外观设备</string>
+    <string name="l_before_wheel">左前车轮</string>
+    <string name="l_after_wheel">左后车轮</string>
+    <string name="r_before_wheel">右前车轮</string>
+    <string name="r_after_wheel">右后车轮</string>
+    <string name="out_trunk">后备箱盖</string>
+    <string name="engine_hatch">发动机舱盖</string>
+    <string name="front_bumper">前保险杠</string>
+    <string name="rear_bumper">后保险杠</string>
+    <string name="roof">车顶</string>
+    <string name="left_front_fender">左前翼子板</string>
+    <string name="left_rear_fender">左后翼子板</string>
+    <string name="right_front_fender">右前翼子板</string>
+    <string name="right_rear_fender">右后翼子板</string>
+    <string name="is_bridge">正驾驶台</string>
+    <string name="deputy_bridge">副驾驶台</string>
+    <string name="left_front_door">左前门</string>
+    <string name="left_back_door">左后门</string>
+    <string name="right_front_door">右前门</string>
+    <string name="right_back_door">右后门</string>
+    <string name="left_front_seat">左前座椅</string>
+    <string name="right_front_seat">右前座椅</string>
+    <string name="left_back_seat">左后座椅</string>
+    <string name="right_back_seat">右后座椅</string>
+    <string name="engine">发动机</string>
+    <string name="transmission">变速箱</string>
+    <string name="traffic_problems">车辆行驶问题</string>
+    <string name="chassis_problem">车辆底盘问题</string>
+    <string name="equipment_problems">电子设备问题</string>
+    <string name="run_ok">我的车行驶状况良好，无故障</string>
+    <string name="run_exp">行驶中有异响</string>
+    <string name="run_leaning">行驶中有跑偏</string>
+    <string name="brake_problem">刹车有问题</string>
+    <string name="chassis_ok">我的车底盘没有任何问题</string>
+    <string name="chassis_drag_bottom">我的车辆有拖底</string>
+    <string name="suspension_problem">前后悬挂有问题</string>
+    <string name="shock_absorber_problem">减震器有问题</string>
+    <string name="electron_1">我的电子设备没有任何问题</string>
+    <string name="electron_2">仪表盘显示有问题</string>
+    <string name="electron_3">中控大屏有问题</string>
+    <string name="electron_4">空调有问题</string>
+    <string name="electron_5">窗户（天窗和四窗）控制有问题</string>
+    <string name="electron_6">音响或音频部件有问题</string>
+    <string name="electron_7">倒车雷达或影像有问题</string>
+    <string name="electron_8">电动座椅调整有问题</string>
+    <string name="electron_9">外部照明（大灯、雾灯、尾灯）有问题</string>
+    <string name="electron_10">内部照明（车内照明灯）有问题</string>
+    <string name="electron_11">喇叭有问题</string>
+    <string name="electron_12">电路控制（各类开关）有问题</string>
+    <string name="electron_13">雨刮器和周边仪器有问题</string>
+
+    <!-- &#160; 空格  &#8230; ... -->
+
+</resources>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/global_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/logo_title_include" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/bg_white"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/facade" />
+
+                <ImageView
+                    android:id="@+id/title1img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/upholstery" />
+
+                <ImageView
+                    android:id="@+id/title2img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/title3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/impetus" />
+
+                <ImageView
+                    android:id="@+id/title3img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/other" />
+
+                <ImageView
+                    android:id="@+id/title4img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/arrow" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

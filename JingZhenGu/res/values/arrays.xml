@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="facade">
+        <item>左前车轮</item>
+        <item>左后车轮</item>
+        <item>右前车轮</item>
+        <item>右后车轮</item>
+        <item>车顶</item>
+        <item>后备箱盖</item>
+        <item>发动机舱盖</item>
+        <item>前保险杠</item>
+        <item>后保险杠</item>
+        <item>左前翼子板</item>
+        <item>左后翼子板</item>
+        <item>右前翼子板</item>
+        <item>右后翼子板</item>
+    </string-array>
+    <string-array name="upholstery">
+        <item>正驾驶台</item>
+        <item>副驾驶台</item>
+        <item>左前门</item>
+        <item>左后门</item>
+        <item>右前门</item>
+        <item>右后门</item>
+        <item>左前座椅</item>
+        <item>右前座椅</item>
+        <item>左后座椅</item>
+        <item>右后座椅</item>
+        <item>后备箱</item>
+    </string-array>
+    <string-array name="impetus">
+        <item>发动机</item>
+        <item>变速箱</item>
+    </string-array>
+    <string-array name="impetus_drawer">
+        <item>微小问题，完全不影响使用</item>
+        <item>进行过轻微的维修</item>
+        <item>拆开大修过</item>
+        <item>更换过</item>
+    </string-array>
+    <string-array name="upholstery_drawer">
+        <item>有染污</item>
+        <item>有划痕或烟头眼</item>
+        <item>有使用故障</item>
+    </string-array>
+    <string-array name="carriage_drawer">
+        <item>轮毂有轻微划痕</item>
+        <item>轮毂有生锈或严重划痕</item>
+        <item>轮毂有过变形，并修复</item>
+    </string-array>
+    <string-array name="car_top_drawer">
+        <item>轻微损伤，需要喷漆</item>
+        <item>一般损伤，需要钣金</item>
+        <item>严重损伤，需要大修</item>
+    </string-array>
+
+    <!-- 损伤类型 -->
+    <string-array name="car_injure_type">
+        <item>剐蹭</item>
+        <item>碰撞</item>
+    </string-array>
+
+    <!-- 损伤程度 剐蹭 -->
+    <string-array name="car_injure_degree1">
+        <item>轻微剐蹭，只掉了点儿漆</item>
+        <item>一般剐蹭，需要局部钣金</item>
+        <item>严重剐蹭，需要更换部件</item>
+    </string-array>
+
+    <!-- 损伤程度 碰撞 -->
+    <string-array name="car_injure_degree2">
+        <item>轻微碰撞，需要局部钣金</item>
+        <item>一般碰撞，需要更换部件</item>
+        <item>严重碰撞，车身变形需要大修</item>
+    </string-array>
+
+</resources>

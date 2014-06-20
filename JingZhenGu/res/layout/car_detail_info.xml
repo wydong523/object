@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/global_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/logo_title_include" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/car_detail_info_registration_site_layout"
+                style="@style/editview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dip" >
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4" >
+
+                    <Button
+                        android:id="@+id/car_detail_info_registration_site_flag"
+                        style="@style/flag_btn_style"
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:visibility="invisible" >
+                    </Button>
+
+                    <TextView
+                        style="@style/textview_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/car_detail_info_registration_site_flag"
+                        android:text="@string/registration_site" />
+
+                    <Button
+                        android:layout_width="1dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dip"
+                        android:background="@drawable/shadow_long" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <TextView
+                        android:id="@+id/car_detail_info_registration_site_text"
+                        style="@style/editview_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/car_detail_info_car_color_layout"
+                style="@style/editview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_below="@+id/car_detail_info_registration_site_layout"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/bg_input"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4" >
+
+                    <Button
+                        android:id="@+id/car_detail_info_car_color_flag"
+                        style="@style/flag_btn_style"
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:visibility="invisible" >
+                    </Button>
+
+                    <TextView
+                        style="@style/textview_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/car_detail_info_car_color_flag"
+                        android:text="@string/car_color" />
+
+                    <Button
+                        android:layout_width="1dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dip"
+                        android:background="@drawable/shadow_long" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <TextView
+                        android:id="@+id/car_detail_info_car_color_text"
+                        style="@style/editview_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/car_detail_info_insurance_date_layout"
+                style="@style/editview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_below="@+id/car_detail_info_car_color_layout"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/bg_input"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4" >
+
+                    <Button
+                        android:id="@+id/car_detail_info_insurance_date_flag"
+                        style="@style/flag_btn_style"
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:visibility="invisible" >
+                    </Button>
+
+                    <TextView
+                        style="@style/textview_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/car_detail_info_insurance_date_flag"
+                        android:text="@string/insurance_date" />
+
+                    <Button
+                        android:layout_width="1dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dip"
+                        android:background="@drawable/shadow_long" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <TextView
+                        android:id="@+id/car_detail_info_insurance_date_text"
+                        style="@style/editview_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/car_detail_info_annual_inspection_date_layout"
+                style="@style/editview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_below="@+id/car_detail_info_insurance_date_layout"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/bg_input"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4" >
+
+                    <Button
+                        android:id="@+id/car_detail_info_annual_inspection_date_flag"
+                        style="@style/flag_btn_style"
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:visibility="invisible" >
+                    </Button>
+
+                    <TextView
+                        style="@style/textview_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/car_detail_info_annual_inspection_date_flag"
+                        android:text="@string/annual_inspection_date" />
+
+                    <Button
+                        android:layout_width="1dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dip"
+                        android:background="@drawable/shadow_long" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <TextView
+                        android:id="@+id/car_detail_info_annual_inspection_date_text"
+                        style="@style/editview_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                style="@style/editview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_below="@+id/car_detail_info_annual_inspection_date_layout"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/bg_input"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/car_detail_info_actual_price_layout"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4" >
+
+                    <Button
+                        android:id="@+id/car_detail_info_actual_price_flag"
+                        style="@style/flag_btn_style"
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:visibility="invisible" >
+                    </Button>
+
+                    <TextView
+                        style="@style/textview_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/car_detail_info_actual_price_flag"
+                        android:text="@string/actual_price" />
+
+                    <Button
+                        android:layout_width="1dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dip"
+                        android:background="@drawable/shadow_long" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <EditText
+                        android:id="@+id/car_detail_info_actual_price_edit"
+                        style="@style/editview_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numeric="integer" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="50dip"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/car_info_price_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/info_btn"
+                    android:text="查看价格"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/standard_padding" />
+            </LinearLayout>
+
+            <!-- editview part end!! -->
+            <!-- 省份滑动 -->
+
+            <SlidingDrawer
+                android:id="@+id/car_detail_info_province_drawer"
+                android:layout_width="250dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/car_detail_info_province_content"
+                android:handle="@+id/car_detail_info_province_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/car_detail_info_province_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/car_detail_info_province_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+
+            <!-- 市滑动 -->
+
+            <SlidingDrawer
+                android:id="@+id/car_detail_info_city_drawer"
+                android:layout_width="125dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/car_detail_info_city_content"
+                android:handle="@+id/car_detail_info_city_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/car_detail_info_city_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/car_detail_info_city_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+
+            <!-- 颜色滑动 -->
+
+            <SlidingDrawer
+                android:id="@+id/car_detail_info_color_drawer"
+                android:layout_width="250dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:content="@+id/car_detail_info_color_content"
+                android:handle="@+id/car_detail_info_color_handle"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@id/car_detail_info_color_handle"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ListView
+                    android:id="@id/car_detail_info_color_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_white"
+                    android:divider="@drawable/split_line1"
+                    android:dividerHeight="1dip"
+                    android:paddingRight="5dip"
+                    android:scrollbars="none" >
+                </ListView>
+            </SlidingDrawer>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

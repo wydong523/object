@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/global_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <include layout="@layout/logo_title_include" />
+
+        <RelativeLayout
+            style="@style/editview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/bg_input" >
+
+            
+
+
+            <EditText
+                android:id="@+id/car_info_year_month_edit"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/car_year_brand"
+                android:layout_alignBottom="@+id/car_year_brand"
+                android:layout_toRightOf="@+id/line"
+                android:background="@null"
+                android:enabled="false"
+                android:singleLine="true"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/bottom_btn_include" />
+
+</LinearLayout>
