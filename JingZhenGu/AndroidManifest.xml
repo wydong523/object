@@ -58,6 +58,10 @@
             android:name="com.gc.jingzhengu.ui.InjureDetailActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.gc.jingzhengu.ui.DetailResultActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
