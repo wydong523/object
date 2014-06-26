@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gc.jingzhengu.R;
+import com.gc.jingzhengu.uitls.MessageUtils;
 import com.gc.jingzhengu.vo.Facade;
 import com.gc.jingzhengu.vo.Position;
 
@@ -129,27 +130,8 @@ public class FacadeAdapter extends BaseAdapter
 		public void onClick(View v)
 		{
 			int position = ((ViewHolder) v.getTag()).position;
-			// 取消列表内容上一次点击的flag被选中状态
-			for (View view : views)
-			{
-				ImageView img = (ImageView) view.findViewById(R.id.flag);
-				if (img.getVisibility() == View.VISIBLE)
-				{
-					img.setVisibility(View.INVISIBLE);
-				}
-			}
-			// System.out.println("vvv" + ((ViewHolder) v.getTag()).position);
-			// 当前被点击内容flag状态为选中
-			((ViewHolder) v.getTag()).flagPic.setVisibility(View.VISIBLE);
 
-			// 当点击内容被改变同时也改变缓冲区中的内容状态
-			facadeItems.get(position).setFlagPic(View.VISIBLE);
-			// 根据上一次点击的位置，修改缓冲区数据的状态
-			if (oldPostion != -1)
-			{
-				facadeItems.get(oldPostion).setFlagPic(View.INVISIBLE);
-			}
-			oldPostion = position;
+			modifyFlag(v, position);
 
 			// 判断是否当前位置选项是否被修改过
 			if (facadeItems.get(position).getTick() == View.VISIBLE)
@@ -157,13 +139,49 @@ public class FacadeAdapter extends BaseAdapter
 				facadeItems.get(position).setTick(View.INVISIBLE);
 				facadeItems.get(position).setFlagPic(View.INVISIBLE);
 				notifyDataSetChanged();
-				handler.sendEmptyMessage(R.id.no_select);
+				// 撤销当前修改状态，并在最终结果集中删除当前修改项值
+				MessageUtils.sendMessage(handler, R.id.no_select, position);
 			} else
 			{
 				// 根据位置弹出对应窗口
 				handler.sendEmptyMessage(position);
+				System.out.println("facade list position is " + position);
 			}
 
 		}
 	};
+
+	/**
+	 * 
+	 * modifyFlag: <br/>
+	 * 
+	 * @author wang
+	 * @param v
+	 * @param position
+	 * @since JDK 1.6
+	 */
+	protected void modifyFlag(View v, int position)
+	{
+
+		// 取消列表内容上一次点击的圆点flag被选中状态
+		for (View view : views)
+		{
+			ImageView img = (ImageView) view.findViewById(R.id.flag);
+			if (img.getVisibility() == View.VISIBLE)
+			{
+				img.setVisibility(View.INVISIBLE);
+			}
+		}
+		// 当前被点击内容flag状态为选中
+		((ViewHolder) v.getTag()).flagPic.setVisibility(View.VISIBLE);
+
+		// 当点击内容被改变同时也改变缓冲区中的内容状态
+		facadeItems.get(position).setFlagPic(View.VISIBLE);
+		// 根据上一次点击的位置，修改缓冲区数据的状态
+		if (oldPostion != -1 && oldPostion != position)
+		{
+			facadeItems.get(oldPostion).setFlagPic(View.INVISIBLE);
+		}
+		oldPostion = position;
+	}
 }

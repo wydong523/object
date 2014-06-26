@@ -12,6 +12,7 @@ package com.gc.jingzhengu.adapter;
 import java.util.ArrayList;
 
 import com.gc.jingzhengu.R;
+import com.gc.jingzhengu.uitls.MessageUtils;
 import com.gc.jingzhengu.vo.Facade;
 import com.gc.jingzhengu.vo.Impetus;
 
@@ -144,7 +145,7 @@ public class ImpetusAdapter extends BaseAdapter
 			// 当点击内容被改变同时也改变缓冲区中的内容状态
 			impetusItems.get(position).setCircleFlag(View.VISIBLE);
 			// 根据上一次点击的位置，修改缓冲区数据的状态
-			if (oldPostion != -1)
+			if (oldPostion != -1 && oldPostion != position)
 			{
 				impetusItems.get(oldPostion).setCircleFlag(View.INVISIBLE);
 			}
@@ -156,7 +157,7 @@ public class ImpetusAdapter extends BaseAdapter
 				impetusItems.get(position).setCircleFlag(View.INVISIBLE);
 				impetusItems.get(position).setTickFlag(View.INVISIBLE);
 				notifyDataSetChanged();
-				handler.sendEmptyMessage(R.id.no_select);
+				MessageUtils.sendMessage(handler, R.id.no_select, position);
 			} else
 			{
 				// 根据位置弹出对应窗口

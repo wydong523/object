@@ -12,6 +12,7 @@ package com.gc.jingzhengu.adapter;
 import java.util.ArrayList;
 
 import com.gc.jingzhengu.R;
+import com.gc.jingzhengu.uitls.MessageUtils;
 import com.gc.jingzhengu.vo.Upholstery;
 
 import android.content.Context;
@@ -136,14 +137,14 @@ public class UpholsteryAdapter extends BaseAdapter
 				}
 			}
 			int position = ((ViewHolder) v.getTag()).position;
-			System.out.println("vvv" + position);
+			// System.out.println("vvv" + position);
 			// 当前被点击内容flag状态为选中
 			((ViewHolder) v.getTag()).flagPic.setVisibility(View.VISIBLE);
 
 			// 当点击内容被改变同时也改变缓冲区中的内容状态
 			upholsteryItems.get(position).setFlagPic(View.VISIBLE);
 			// 根据上一次点击的位置，修改缓冲区数据的状态
-			if (oldPostion != -1)
+			if (oldPostion != -1 && oldPostion != position)
 			{
 				upholsteryItems.get(oldPostion).setFlagPic(View.INVISIBLE);
 			}
@@ -155,12 +156,9 @@ public class UpholsteryAdapter extends BaseAdapter
 				upholsteryItems.get(position).setTick(View.INVISIBLE);
 				upholsteryItems.get(position).setFlagPic(View.INVISIBLE);
 				notifyDataSetChanged();
-				handler.sendEmptyMessage(R.id.no_select);
+				MessageUtils.sendMessage(handler, R.id.no_select, position);
 			} else
 			{
-				// 根据位置弹出对应窗口
-				// Message message = new Message();
-				// message.
 				handler.sendEmptyMessage(((ViewHolder) v.getTag()).position);
 			}
 		}

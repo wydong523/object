@@ -12,6 +12,7 @@ package com.gc.jingzhengu.adapter;
 import com.gc.jingzhengu.R;
 import com.gc.jingzhengu.fragment.InjureDetailFragment;
 
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -32,15 +33,18 @@ public class InjureDetailFragmentAdapter extends FragmentPagerAdapter
 	protected static final int[] LAYOUT_ID = new int[] { R.layout.facade,
 			R.layout.upholstery, R.layout.impetus, R.layout.other_problem };
 
-	public InjureDetailFragmentAdapter(FragmentManager fm)
+	private Handler mViewPagerHandler;
+
+	public InjureDetailFragmentAdapter(FragmentManager fm, Handler handler)
 	{
 		super(fm);
+		mViewPagerHandler = handler;
 	}
 
 	@Override
 	public Fragment getItem(int position)
 	{
-		return InjureDetailFragment.newInstance(LAYOUT_ID[position]);
+		return InjureDetailFragment.newInstance(LAYOUT_ID[position], mViewPagerHandler);
 	}
 
 	@Override
