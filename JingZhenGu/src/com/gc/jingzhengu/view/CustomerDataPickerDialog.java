@@ -40,13 +40,13 @@ public class CustomerDataPickerDialog extends DatePickerDialog
 
 		if (hasYear)
 		{
-			 sbTitle.append(year + "年");
-//			sbTitle.append(year + "-");
+			sbTitle.append(year + "年");
+			// sbTitle.append(year + "-");
 		}
 		if (hasMonth)
 		{
-			 sbTitle.append((monthOfYear + 1) + "月");
-//			sbTitle.append((monthOfYear + 1) + "-");
+			sbTitle.append((monthOfYear + 1) + "月");
+			// sbTitle.append((monthOfYear + 1) + "-");
 		}
 		if (hasDay)
 		{
@@ -62,7 +62,7 @@ public class CustomerDataPickerDialog extends DatePickerDialog
 	{
 		super.onDateChanged(view, year, month, day);
 		this.setTitle(year + "年" + (month + 1) + "月");
-		//		this.setTitle(year + "年" + (month + 1) + "月");
+		// this.setTitle(year + "年" + (month + 1) + "月");
 		// this.setTitle(year + "年");
 		// this.setTitle(sbTitle);
 	}
@@ -107,6 +107,7 @@ public class CustomerDataPickerDialog extends DatePickerDialog
 					NumberPicker ly = (NumberPicker) year.get(dp);
 					ly.setVisibility(View.GONE);
 				}
+
 			} catch (SecurityException e)
 			{
 				// TODO Auto-generated catch block
