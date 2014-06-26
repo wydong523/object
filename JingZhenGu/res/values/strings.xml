@@ -76,7 +76,9 @@
     <string name="electron_11">喇叭有问题</string>
     <string name="electron_12">电路控制（各类开关）有问题</string>
     <string name="electron_13">雨刮器和周边仪器有问题</string>
-
+    <string name="next_setup">下一步</string>
+    <string name="top_setup">上一步</string>
+    <string name="gen_detail_result">生成结果</string>
     <!-- &#160; 空格  &#8230; ... -->
 
 </resources>

@@ -2,19 +2,23 @@
 <resources>
 
     <string-array name="facade">
-        <item>左前车轮</item>
-        <item>左后车轮</item>
-        <item>右前车轮</item>
-        <item>右后车轮</item>
-        <item>车顶</item>
+        <item>左前轮</item>
+        <item>左后轮</item>
+        <item>右前轮</item>
+        <item>右后轮</item>
+        <item>车辆顶棚</item>
         <item>后备箱盖</item>
-        <item>发动机舱盖</item>
+        <item>发动机盖</item>
         <item>前保险杠</item>
         <item>后保险杠</item>
         <item>左前翼子板</item>
         <item>左后翼子板</item>
         <item>右前翼子板</item>
         <item>右后翼子板</item>
+        <item>左前门</item>
+        <item>左后门</item>
+        <item>右前门</item>
+        <item>右后门</item>
     </string-array>
     <string-array name="upholstery">
         <item>正驾驶台</item>
@@ -28,6 +32,9 @@
         <item>左后座椅</item>
         <item>右后座椅</item>
         <item>后备箱</item>
+         <item>中央扶手</item>
+         <item>顶棚、天窗</item>
+        
     </string-array>
     <string-array name="impetus">
         <item>发动机</item>

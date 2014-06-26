@@ -8,5 +8,10 @@
     <item name="provinceList" type="id"/>
     <item name="cityList" type="id"/>
     <item name="pricerange" type="id"/>
+    <item name="gen_detail_result" type="id"/>
+    <item name="gen_1" type="id"/>
+    <item name="gen_2" type="id"/>
+    <item name="gen_3" type="id"/>
+    <item name="gen_4" type="id"/>
 
 </resources>
