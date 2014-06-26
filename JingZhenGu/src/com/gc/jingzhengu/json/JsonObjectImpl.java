@@ -20,6 +20,7 @@ import android.graphics.Color;
 
 import com.gc.jingzhengu.vo.City;
 import com.gc.jingzhengu.vo.CityList;
+import com.gc.jingzhengu.vo.DetailResult;
 import com.gc.jingzhengu.vo.Make;
 import com.gc.jingzhengu.vo.MakeList;
 import com.gc.jingzhengu.vo.Model;
@@ -289,6 +290,31 @@ public class JsonObjectImpl implements JsonObject
 
 		}
 		return priceRange;
+	}
+
+	public DetailResult parserDetailResult(String jsonData)
+	{
+		DetailResult detailResult = new DetailResult();
+		try
+		{
+			jsonObject = new JSONObject(jsonData);
+			int status = getresult(jsonObject);
+			String msg = jsonObject.getString("msg");
+			if (SUCCESS == status)
+			{
+				String url = jsonObject.getString("MUrl");
+				detailResult.setmURL(url);
+			}
+			detailResult.setMsg(msg);
+			detailResult.setStatus(status);
+
+		} catch (JSONException e)
+		{
+
+			e.printStackTrace();
+
+		}
+		return detailResult;
 	}
 
 	private int getresult(JSONObject jsonObject) throws JSONException
