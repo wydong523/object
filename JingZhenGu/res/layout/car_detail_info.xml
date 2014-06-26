@@ -31,8 +31,8 @@
                     <Button
                         android:id="@+id/car_detail_info_registration_site_flag"
                         style="@style/flag_btn_style"
-                        android:layout_width="15dip"
-                        android:layout_height="15dip"
+                        android:layout_width="10dip"
+                        android:layout_height="10dip"
                         android:visibility="invisible" >
                     </Button>
 
@@ -82,8 +82,8 @@
                     <Button
                         android:id="@+id/car_detail_info_car_color_flag"
                         style="@style/flag_btn_style"
-                        android:layout_width="15dip"
-                        android:layout_height="15dip"
+                        android:layout_width="10dip"
+                        android:layout_height="10dip"
                         android:visibility="invisible" >
                     </Button>
 
@@ -133,8 +133,8 @@
                     <Button
                         android:id="@+id/car_detail_info_insurance_date_flag"
                         style="@style/flag_btn_style"
-                        android:layout_width="15dip"
-                        android:layout_height="15dip"
+                        android:layout_width="10dip"
+                        android:layout_height="10dip"
                         android:visibility="invisible" >
                     </Button>
 
@@ -184,8 +184,8 @@
                     <Button
                         android:id="@+id/car_detail_info_annual_inspection_date_flag"
                         style="@style/flag_btn_style"
-                        android:layout_width="15dip"
-                        android:layout_height="15dip"
+                        android:layout_width="10dip"
+                        android:layout_height="10dip"
                         android:visibility="invisible" >
                     </Button>
 
@@ -236,8 +236,8 @@
                     <Button
                         android:id="@+id/car_detail_info_actual_price_flag"
                         style="@style/flag_btn_style"
-                        android:layout_width="15dip"
-                        android:layout_height="15dip"
+                        android:layout_width="10dip"
+                        android:layout_height="10dip"
                         android:visibility="invisible" >
                     </Button>
 
@@ -285,7 +285,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/info_btn"
-                    android:text="查看价格"
+                    android:text="@string/next_setup"
                     android:textColor="@color/white"
                     android:textSize="@dimen/standard_padding" />
             </LinearLayout>

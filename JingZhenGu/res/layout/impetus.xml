@@ -92,7 +92,7 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <include layout="@layout/bottom_btn_include" />
+    <include layout="@layout/bottom_btn_list1" />
 
 </LinearLayout><!--
 <?xml version="1.0" encoding="utf-8"?>

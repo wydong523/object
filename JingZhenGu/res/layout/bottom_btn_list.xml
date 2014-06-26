@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <Button
-        android:id="@+id/car_info_price_btn"
+        android:id="@+id/bottom_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dip"
@@ -14,7 +14,7 @@
         android:layout_marginRight="15dip"
         android:layout_marginTop="50dip"
         android:background="@drawable/info_btn"
-        android:text="下一步"
+        android:text="@string/next_setup"
         android:textColor="@color/white"
         android:textSize="@dimen/standard_padding" />
 

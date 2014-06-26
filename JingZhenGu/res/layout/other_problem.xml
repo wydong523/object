@@ -79,7 +79,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/run_ok"
-                    android:textColor="@color/black_font" />
+                    android:textColor="@color/black_font"
+                    android:visibility="gone" />
 
                 <CheckBox
                     android:id="@+id/run_exp"
@@ -139,7 +140,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/chassis_ok"
-                    android:textColor="@color/black_font" />
+                    android:textColor="@color/black_font"
+                    android:visibility="gone" />
 
                 <CheckBox
                     android:id="@+id/chassis_drag_bottom"
@@ -199,7 +201,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/electron_1"
-                    android:textColor="@color/black_font" />
+                    android:textColor="@color/black_font"
+                    android:visibility="gone" />
 
                 <CheckBox
                     android:id="@+id/electron_2"
@@ -287,7 +290,39 @@
             </LinearLayout>
         </LinearLayout>
 
-        <include layout="@layout/bottom_btn_include" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/gen_top_btn"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="50dip"
+                android:layout_weight="1"
+                android:background="@drawable/info_btn"
+                android:text="@string/top_setup"
+                android:textColor="@color/white"
+                android:textSize="@dimen/standard_padding" />
+
+            <Button
+                android:id="@+id/gen_result_btn"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="50dip"
+                android:layout_weight="1"
+                android:background="@drawable/info_btn"
+                android:text="@string/gen_detail_result"
+                android:textColor="@color/white"
+                android:textSize="@dimen/standard_padding" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -14,7 +14,7 @@
         android:layout_marginRight="15dip"
         android:layout_marginTop="50dip"
         android:background="@drawable/info_btn"
-        android:text="查看价格"
+        android:text="@string/next_setup"
         android:textColor="@color/white"
         android:textSize="@dimen/standard_padding" />
 
