@@ -28,4 +28,9 @@ public class Constant
 	 * 确定列表标题和内容是否有重复标记
 	 */
 	public static final String IS_TITLE = "istitle";
+
+	/**
+	 * 上牌起始时间
+	 */
+	public static final int REGISTRATION_DATE = 1992;
 }
