@@ -11,12 +11,17 @@ package com.gc.jingzhengu.app;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.gc.jingzhengu.json.JsonObjectImpl;
 import com.gc.jingzhengu.uitls.HttpClientUtils;
 import com.gc.jingzhengu.uitls.SignUtils;
+import com.gc.jingzhengu.vo.CarDamage;
 import com.gc.jingzhengu.vo.CityList;
+import com.gc.jingzhengu.vo.DetailResult;
 import com.gc.jingzhengu.vo.MakeList;
 import com.gc.jingzhengu.vo.ModelList;
 import com.gc.jingzhengu.vo.PriceRange;
@@ -63,7 +68,9 @@ public class HttpService
 		// "http://api.jingzhengu.com/APP/Car/GetMakeByLetter.ashx";
 		String result = HttpClientUtils.sendHttpClientPOSTRequest(path
 				+ "?&sign=" + SignUtils.signForMakeList(), null, ENCODING);
-		System.out.println(result);
+		// System.out.println(result);
+		System.out.println("path is"
+				+ path + "?&sign=" + SignUtils.signForMakeList());
 		JsonObjectImpl jsonObjectImpl = new JsonObjectImpl();
 		MakeList makeList = jsonObjectImpl.parserMakeList(result);
 		return makeList;
@@ -180,11 +187,66 @@ public class HttpService
 		String url = path + "?ProvId=" + provinceid + "&sign="
 				+ SignUtils.signForCityList(String.valueOf(provinceid));
 
-		
 		String result = HttpClientUtils.sendHttpClientPOSTRequest(url, null,
 				ENCODING);
 		JsonObjectImpl jsonObjectImpl = new JsonObjectImpl();
 		cityList = jsonObjectImpl.parserCityList(result);
 		return cityList;
+	}
+
+	public static DetailResult sendGenResultData(AppContext appContext)
+			throws Exception
+	{
+		String path = "http://apitest.guchewang.com/APP/Assess/Detailed.ashx";
+
+		Set<String> keys;
+		List<String> list = appContext.getmResultData();
+
+		keys = AppContext.getmFourPageData3().keySet();
+		for (Iterator<String> it = keys.iterator(); it.hasNext();)
+		{
+			String key = (String) it.next();
+			if (AppContext.getmFourPageData3().get(key) == true)
+				list.add(key);
+		}
+
+		keys = AppContext.getmFourPageData2().keySet();
+		for (Iterator<String> it = keys.iterator(); it.hasNext();)
+		{
+			String key = (String) it.next();
+			if (AppContext.getmFourPageData2().get(key) == true)
+				list.add(key);
+		}
+
+		keys = AppContext.getmFourPageData1().keySet();
+		for (Iterator<String> it = keys.iterator(); it.hasNext();)
+		{
+			String key = (String) it.next();
+			if (AppContext.getmFourPageData1().get(key) == true)
+				list.add(key);
+		}
+
+		StringBuffer buffer = new StringBuffer();
+		for (String str : list)
+		{
+			buffer.append(str);
+			buffer.append(",");
+		}
+
+		CarDamage carDamage = appContext.getmCarDamage();
+		carDamage.setCarInjury(buffer.toString().substring(0,
+				buffer.toString().length() - 1));
+
+		JsonObjectImpl jsonObjectImpl = new JsonObjectImpl();
+		String JsonBody = jsonObjectImpl.generateJson(carDamage);
+		System.out.println("Send json is " + JsonBody);
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("JsonBody", JsonBody);
+
+		String result = HttpClientUtils.sendHttpClientPOSTRequest(path
+				+ "?&sign=" + SignUtils.signForMakeList(), params, ENCODING);
+		System.out.println("Result is " + result);
+
+		return jsonObjectImpl.parserDetailResult(result);
 	}
 }

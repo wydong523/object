@@ -2,6 +2,9 @@ package com.gc.jingzhengu.app;
 
 import java.util.Stack;
 
+import com.gc.jingzhengu.ui.HomeActivity;
+import com.gc.jingzhengu.ui.IndexCarActivity;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -76,6 +79,27 @@ public class AppManager
 			}
 		}
 		activityStack.clear();
+	}
+
+	/**
+	 * 关闭除了主页和汽车索引界面之外的所有界面 finishOtherActivity: <br/>
+	 * 
+	 * @author wang
+	 * @since JDK 1.6
+	 */
+	public void finishOtherActivity()
+	{
+		for (int i = 0, size = activityStack.size(); i < size; i++)
+		{
+			if (null != activityStack.get(i)
+					&& IndexCarActivity.class != activityStack.get(i)
+							.getClass()
+					&& HomeActivity.class != activityStack.get(i).getClass())
+			{
+				activityStack.get(i).finish();
+			}
+		}
+		// activityStack.clear();
 	}
 
 	public void AppExit(Context context)
