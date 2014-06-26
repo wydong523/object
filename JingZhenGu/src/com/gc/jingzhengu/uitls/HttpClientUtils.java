@@ -66,6 +66,7 @@ public class HttpClientUtils
 
 		} catch (ClientProtocolException e)
 		{
+			System.out.println(e);
 			e.printStackTrace();
 
 		} catch (IOException e)
