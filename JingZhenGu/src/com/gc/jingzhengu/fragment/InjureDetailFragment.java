@@ -12,18 +12,27 @@ package com.gc.jingzhengu.fragment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import com.gc.jingzhengu.R;
 import com.gc.jingzhengu.adapter.FacadeAdapter;
 import com.gc.jingzhengu.adapter.ImpetusAdapter;
 import com.gc.jingzhengu.adapter.SimpleAdapter;
 import com.gc.jingzhengu.adapter.UpholsteryAdapter;
+import com.gc.jingzhengu.app.ActivityHelp;
 import com.gc.jingzhengu.app.AppContext;
+import com.gc.jingzhengu.app.HttpService;
+import com.gc.jingzhengu.service.CarDamageSerivce;
+import com.gc.jingzhengu.ui.DetailResultActivity;
+import com.gc.jingzhengu.uitls.MessageUtils;
+import com.gc.jingzhengu.vo.DetailResult;
 import com.gc.jingzhengu.vo.Facade;
 import com.gc.jingzhengu.vo.Impetus;
 import com.gc.jingzhengu.vo.Upholstery;
 
+import android.R.string;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -64,7 +73,7 @@ import android.widget.LinearLayout.LayoutParams;
  * @see
  */
 public class InjureDetailFragment extends Fragment implements OnScrollListener,
-		OnItemClickListener, OnCheckedChangeListener
+		OnItemClickListener, OnCheckedChangeListener, OnClickListener
 {
 	/**
 	 * 需要关闭的drawer
@@ -92,9 +101,24 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 	private ListView mFacadeList;
 
 	/**
+	 * 外观下一步按钮
+	 */
+	private Button mFacadeNextBtn;
+
+	/**
 	 * 内饰列表
 	 */
 	private ListView mUpholstery;
+
+	/**
+	 * 内饰上一步按钮
+	 */
+	private Button mUpholsteryTopBtn;
+
+	/**
+	 * 内饰下一步按钮
+	 */
+	private Button mUpholsteryNextBtn;
 
 	/**
 	 * 动力列表
@@ -132,6 +156,11 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 	private Handler mImpetusDrawerHandler;
 
 	/**
+	 * 主体界面操作Handler
+	 */
+	private Handler mHandler;
+
+	/**
 	 * 发动机布局
 	 */
 	private RelativeLayout mEngineLayout;
@@ -144,45 +173,79 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 	/**
 	 * 车轮drawer
 	 */
-	private SlidingDrawer mFacadeCarriagesDrawer;// 四轮使用
+	private SlidingDrawer mFacadeCarriagesDrawer;
+
+	/**
+	 * 车轮list
+	 */
 	private ListView mFacadeCarriagesListContent;
 
 	/**
 	 * 车顶drawer
 	 */
 	private SlidingDrawer mFacadeCarTopDrawer;// 车顶使用
+
+	/**
+	 * 车顶list
+	 */
 	private ListView mFacadeCarTopContent;
 
 	/**
 	 * 剐蹭、碰撞一级drawer
 	 */
 	private SlidingDrawer mFacadeInjureTypeDrawer;// 其他部件使用1级 剐蹭、碰撞
+	/**
+	 * 剐蹭、碰撞一级list
+	 */
 	private ListView mFacadeInjureTypeContent;
 
 	/**
 	 * 剐蹭2级drawer
 	 */
 	private SlidingDrawer mFacadeInjureTypelistDrawer;// 其他部件使用2级 剐蹭列表
+
+	/**
+	 * 剐蹭2级list
+	 */
 	private ListView mFacadeInjureTypelistContent;
 
 	/**
 	 * 碰撞2级drawer
 	 */
 	private SlidingDrawer mFacadeInjureCollisionlistDrawer;// 其他部件使用2级 碰撞列表
+	/**
+	 * 碰撞2级list
+	 */
 	private ListView mFacadeInjureCollisionlistContent;
 
 	/**
-	 * upholstery使用drawer
+	 * 内饰使用drawer
 	 */
 	private SlidingDrawer mUpholsteryTypeDrawer;
+	/**
+	 * 内饰使用list
+	 */
 	private ListView mUpholsteryTypeListContent;
 
 	/**
-	 * impetus使用drawer
+	 * 动力使用drawer
 	 */
 	private SlidingDrawer mImpetusDrawer;
+	/**
+	 * 动力使用list
+	 */
 	private ListView mImpetusContent;
 	private ImageView mImpetusHandle;
+
+	/**
+	 * 动力上一步按钮
+	 */
+	private Button mImpetusTopBtn;
+
+	/**
+	 * 动力下一步按钮
+	 */
+	private Button mImpetusNextBtn;
 
 	private CheckBox mRunOk;
 	private CheckBox mRunExp;
@@ -209,6 +272,15 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 	private CheckBox mElectron13;
 
 	/**
+	 * 其他界面生成结果按钮
+	 */
+	private Button mGenResultBtn;
+	/**
+	 * 其他界面上一步按钮
+	 */
+	private Button mGenTopBtn;
+
+	/**
 	 * 需要在Viewpager中显示的布局id
 	 */
 	private int mLayoutId;
@@ -222,11 +294,58 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 	/** 动力列表被点击的位置 */
 	private int mImpetusPosition = -1;
 
-	public static InjureDetailFragment newInstance(int layout)
+	private static CarDamageSerivce mCarDamageSerivce;
+
+	private AppContext appContext;
+
+	private List<String> mResultData;
+
+	private static Handler mViewPagerHandler;
+
+	public static InjureDetailFragment newInstance(int layout,
+			Handler mViewpagerHandler)
 	{
+		mCarDamageSerivce = new CarDamageSerivce();
 		InjureDetailFragment fragment = new InjureDetailFragment();
 		fragment.mLayoutId = layout;
+		if (mViewPagerHandler == null)
+		{
+			mViewPagerHandler = mViewpagerHandler;
+		}
 		return fragment;
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		appContext = (AppContext) getActivity().getApplication();
+		mResultData = appContext.getmResultData();
+		if (mHandler == null)
+		{
+			mHandler = getmHandler();
+		}
+	}
+
+	private Handler getmHandler()
+	{
+		return new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg)
+			{
+				int id = msg.what;
+				switch (id) {
+				case R.id.gen_detail_result:
+					ActivityHelp.startActivity(getActivity(),
+							DetailResultActivity.class, "DetailResult",
+							(DetailResult) msg.obj);
+					break;
+				default:
+					break;
+				}
+			}
+		};
 	}
 
 	@Override
@@ -310,6 +429,12 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 		mRunOk.setChecked(true);
 		mChassisOk.setChecked(true);
 		mElectron1.setChecked(true);
+
+		mGenResultBtn = (Button) view.findViewById(R.id.gen_result_btn);
+		mGenResultBtn.setOnClickListener(this);
+
+		mGenTopBtn = (Button) view.findViewById(R.id.gen_top_btn);
+		mGenTopBtn.setOnClickListener(this);
 	}
 
 	/**
@@ -336,7 +461,11 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 		mUpholstery = (ListView) view.findViewById(R.id.upholstery_list);
 		mUpholstery.setOnScrollListener(this);
 		View v = getActivity().getLayoutInflater().inflate(
-				R.layout.bottom_btn_list, null);
+				R.layout.bottom_btn_list1, null);
+		mUpholsteryTopBtn = (Button) v.findViewById(R.id.top_setup_btn);
+		mUpholsteryTopBtn.setOnClickListener(this);
+		mUpholsteryNextBtn = (Button) v.findViewById(R.id.next_setup_btn);
+		mUpholsteryNextBtn.setOnClickListener(this);
 		mUpholstery.addFooterView(v);
 		if (upholsteryItems.size() == 0)
 			setUpholsteryItem();
@@ -360,9 +489,6 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 		mImpetusDrawerHandler = getmImpetusDrawerHandler();
 		mImpetus = (ListView) view.findViewById(R.id.impetus_list);
 		mImpetus.setOnScrollListener(this);
-		// View v = getActivity().getLayoutInflater().inflate(
-		// R.layout.bottom_btn_list, null);
-		// mImpetus.addFooterView(v);
 		if (impetusItems.size() == 0)
 			setImpetusData();
 		mImpetusAdapter = new ImpetusAdapter(getActivity(), impetusItems,
@@ -373,6 +499,11 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 		mImpetusContent = (ListView) view.findViewById(R.id.impetus_content);
 		mImpetusContent.setOnItemClickListener(this);
 		mImpetusHandle = (ImageView) view.findViewById(R.id.impetus_handle);
+
+		mImpetusTopBtn = (Button) view.findViewById(R.id.top_setup_btn);
+		mImpetusTopBtn.setOnClickListener(this);
+		mImpetusNextBtn = (Button) view.findViewById(R.id.next_setup_btn);
+		mImpetusNextBtn.setOnClickListener(this);
 
 		List<String> list = Arrays.asList(getResources().getStringArray(
 				R.array.impetus_drawer));
@@ -397,6 +528,7 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 					{
 						mImpetusDrawer.close();
 					}
+					removeElement(CarDamageSerivce.THREE_PAGE, msg.obj);
 				}
 			}
 		};
@@ -420,6 +552,7 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 					{
 						mUpholsteryTypeDrawer.close();
 					}
+					removeElement(CarDamageSerivce.TWO_PAGE, msg.obj);
 				}
 			}
 		};
@@ -443,6 +576,13 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 		}
 	}
 
+	/**
+	 * 初始化外观界面 initFacade: <br/>
+	 * 
+	 * @author wang
+	 * @param view
+	 * @since JDK 1.6
+	 */
 	private void initFacade(View view)
 	{
 		mFacadeDrawerHandler = getFacadeDrawerHandler();
@@ -457,6 +597,8 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 		mFacadeList.setOnScrollListener(this);
 		View v = getActivity().getLayoutInflater().inflate(
 				R.layout.bottom_btn_list, null);
+		mFacadeNextBtn = (Button) v.findViewById(R.id.bottom_btn);
+		mFacadeNextBtn.setOnClickListener(this);
 		mFacadeList.addFooterView(v);
 		mFacadeAdapter = new FacadeAdapter(getActivity(), facadeItems,
 				mFacadeDrawerHandler);
@@ -554,6 +696,8 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 				if (msg.what == R.id.no_select)
 				{
 					closeAllDrawer();
+					removeElement(CarDamageSerivce.ONE_PAGE, msg.obj);
+
 				} else if (mFacadePosition <= 3)
 				{
 					// 关闭其他开启的滑动
@@ -590,6 +734,32 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 			}
 
 		};
+	}
+
+	/**
+	 * 删除结果列表中当前页面对应的列表位置包含的元素 removeElement: <br/>
+	 * 
+	 * @author wang
+	 * @param onePage
+	 * @param obj
+	 * @since JDK 1.6
+	 */
+	protected void removeElement(int pagePosition, Object obj)
+	{
+		// 获取列表点击位置
+		int position = (Integer) obj;
+		List<String> elements = mCarDamageSerivce.getElementsByPosition(
+				pagePosition, position);
+		// 删除对应的列表元素
+		for (String element : elements)
+		{
+			if (mResultData.contains(element))
+			{
+				mResultData.remove(element);
+			}
+		}
+		System.out.println("mResultData.remove() sezi is " + mResultData.size()
+				+ "," + mResultData.toString());
 	}
 
 	/**
@@ -739,44 +909,119 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 			upholsteryItems.get(mUpholsteryPosition).setTick(View.VISIBLE);
 			upholsteryItems.get(mUpholsteryPosition).setFlagPic(View.INVISIBLE);
 			mUpholsteryAdapter.notifyDataSetChanged();
+			addResultData(CarDamageSerivce.TWO_PAGE, mUpholsteryPosition,
+					position);
 			break;
 		case R.id.impetus_content:
 			mImpetusDrawer.close();
 			impetusItems.get(mImpetusPosition).setTickFlag(View.VISIBLE);
 			impetusItems.get(mImpetusPosition).setCircleFlag(View.INVISIBLE);
 			mImpetusAdapter.notifyDataSetChanged();
+			addResultData(CarDamageSerivce.THREE_PAGE, mImpetusPosition,
+					position);
 			break;
 		case R.id.facade_carriages_list_content:
 		case R.id.facade_car_top_content:
 		case R.id.facade_car_injure_typelist_content:
+			closeAllDrawer();
+			showTickForFacade();
+			addResultData(CarDamageSerivce.ONE_PAGE, mFacadePosition, position);
+			break;
 		case R.id.facade_car_injure_collisionlist_content:
 			closeAllDrawer();
 			showTickForFacade();
+			addResultData(CarDamageSerivce.ONE_PAGE, mFacadePosition,
+					position + 3);
 			break;
 		default:
 			break;
 		}
 	}
 
+	/**
+	 * 标示数据到结果集列表 addResultData: <br/>
+	 * 
+	 * @author wang
+	 * @param position
+	 * @since JDK 1.6
+	 */
+	private void addResultData(int pagePosition, int listPosition, int position)
+	{
+		String selectid;
+		selectid = mCarDamageSerivce.getSelectId(pagePosition, listPosition,
+				position);
+		mResultData.add(selectid);
+		System.out.println("resulData size is " + mResultData.size());
+	}
+
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
 	{
 
+		// ==============================车辆行驶问题======================================
 		if (isChecked == true && buttonView.getId() == R.id.run_ok)
 		{
 			mRunExp.setChecked(false);
 			mRunLeaning.setChecked(false);
 			mBrakeProblem.setChecked(false);
 			buttonView.setChecked(true);
+			appContext.modifyData1Checked(true, false, false, false);
+		} else if (isChecked == false && buttonView.getId() == R.id.run_ok)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_1, false);
 		}
 
-		if (buttonView.getId() == R.id.run_exp
-				|| buttonView.getId() == R.id.run_leaning
-				|| buttonView.getId() == R.id.brake_problem
-				&& mRunOk.isChecked() == true)
+		if (buttonView.getId() == R.id.run_exp && isChecked == true)
 		{
 			mRunOk.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_1, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_2, true);
+		} else if (buttonView.getId() == R.id.run_exp && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_2, false);
 		}
+
+		if (buttonView.getId() == R.id.run_leaning && isChecked == true)
+		{
+			mRunOk.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_1, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_3, true);
+		} else if (buttonView.getId() == R.id.run_leaning && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_3, false);
+		}
+
+		if (buttonView.getId() == R.id.brake_problem && isChecked == true)
+		{
+			mRunOk.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_1, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_4, true);
+
+		} else if (buttonView.getId() == R.id.brake_problem
+				&& isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData1(),
+					CarDamageSerivce.CHECKBOX_4, false);
+		}
+
+		// Set<String> key = appContext.getmFourPageData1().keySet();
+		// for (Iterator<String> it = key.iterator(); it.hasNext();)
+		// {
+		// String s = (String) it.next();
+		// System.out
+		// .println(s + "==" + appContext.getmFourPageData1().get(s));
+		// }
+
+		// =======================车辆底盘问题=================================================
 
 		if (isChecked == true && buttonView.getId() == R.id.chassis_ok)
 		{
@@ -784,15 +1029,65 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 			mSuspensionProblem.setChecked(false);
 			mShockAbsorberProblem.setChecked(false);
 			buttonView.setChecked(true);
+			appContext.modifyData2Checked(true, false, false, false);
+		} else if (isChecked == false && buttonView.getId() == R.id.chassis_ok)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_5, false);
 		}
 
-		if (buttonView.getId() == R.id.chassis_drag_bottom
-				|| buttonView.getId() == R.id.suspension_problem
-				|| buttonView.getId() == R.id.shock_absorber_problem
-				&& mChassisOk.isChecked() == true)
+		if (buttonView.getId() == R.id.chassis_drag_bottom && isChecked == true)
 		{
 			mChassisOk.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_5, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_6, true);
+		} else if (buttonView.getId() == R.id.chassis_drag_bottom
+				&& isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_6, false);
 		}
+
+		if (buttonView.getId() == R.id.suspension_problem && isChecked == true)
+		{
+			mChassisOk.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_5, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_7, true);
+		} else if (buttonView.getId() == R.id.suspension_problem
+				&& isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_7, false);
+		}
+
+		if (buttonView.getId() == R.id.shock_absorber_problem
+				&& isChecked == true)
+		{
+			mChassisOk.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_5, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_8, true);
+		} else if (buttonView.getId() == R.id.shock_absorber_problem
+				&& isChecked == true)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData2(),
+					CarDamageSerivce.CHECKBOX_8, false);
+		}
+
+		// Set<String> key = AppContext.getmFourPageData2().keySet();
+		// for (Iterator<String> it = key.iterator(); it.hasNext();)
+		// {
+		// String s = (String) it.next();
+		// System.out
+		// .println(s + "==" + AppContext.getmFourPageData2().get(s));
+		// }
+
+		// =======================电子设备问题==============================================
 
 		if (isChecked == true && buttonView.getId() == R.id.electron_1)
 		{
@@ -809,25 +1104,236 @@ public class InjureDetailFragment extends Fragment implements OnScrollListener,
 			mElectron12.setChecked(false);
 			mElectron13.setChecked(false);
 			buttonView.setChecked(true);
+			boolean[] value = { true, false, false, false, false, false, false,
+					false, false, false, false, false, false };
+			appContext.modifyData3Checked(value);
+		} else if (isChecked == false && buttonView.getId() == R.id.electron_1)
+		{
+			buttonView.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
 		}
 
-		if (buttonView.getId() == R.id.electron_2
-				|| buttonView.getId() == R.id.electron_3
-				|| buttonView.getId() == R.id.electron_4
-				|| buttonView.getId() == R.id.electron_5
-				|| buttonView.getId() == R.id.electron_6
-				|| buttonView.getId() == R.id.electron_7
-				|| buttonView.getId() == R.id.electron_8
-				|| buttonView.getId() == R.id.electron_9
-				|| buttonView.getId() == R.id.electron_10
-				|| buttonView.getId() == R.id.electron_11
-				|| buttonView.getId() == R.id.electron_12
-				|| buttonView.getId() == R.id.electron_13
-				&& mChassisOk.isChecked() == true)
+		if (buttonView.getId() == R.id.electron_2 && isChecked == true)
 		{
 			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_10, true);
+		} else if (buttonView.getId() == R.id.electron_2 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_10, false);
 		}
+
+		if (buttonView.getId() == R.id.electron_3 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_11, true);
+		} else if (buttonView.getId() == R.id.electron_3 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_11, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_4 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_12, true);
+		} else if (buttonView.getId() == R.id.electron_4 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_12, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_5 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_13, true);
+		} else if (buttonView.getId() == R.id.electron_5 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_13, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_6 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_14, true);
+		} else if (buttonView.getId() == R.id.electron_6 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_14, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_7 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_15, true);
+		} else if (buttonView.getId() == R.id.electron_7 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_15, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_8 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_16, true);
+		} else if (buttonView.getId() == R.id.electron_8 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_16, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_9 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_17, true);
+		} else if (buttonView.getId() == R.id.electron_9 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_17, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_10 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_18, true);
+		} else if (buttonView.getId() == R.id.electron_10 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_18, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_11 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_19, true);
+		} else if (buttonView.getId() == R.id.electron_11 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_19, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_12 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_20, true);
+		} else if (buttonView.getId() == R.id.electron_12 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_20, false);
+		}
+
+		if (buttonView.getId() == R.id.electron_13 && isChecked == true)
+		{
+			mElectron1.setChecked(false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_9, false);
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_21, true);
+		} else if (buttonView.getId() == R.id.electron_13 && isChecked == false)
+		{
+			appContext.modifyCheckBox(AppContext.getmFourPageData3(),
+					CarDamageSerivce.CHECKBOX_21, false);
+		}
+
+		// Set<String> key = AppContext.getmFourPageData3().keySet();
+		// for (Iterator<String> it = key.iterator(); it.hasNext();)
+		// {
+		// String s = (String) it.next();
+		// System.out
+		// .println(s + "==" + AppContext.getmFourPageData3().get(s));
+		// }
 
 	}
 
+	@Override
+	public void onClick(View v)
+	{
+		int id = v.getId();
+		switch (id) {
+		case R.id.gen_result_btn:
+			startGenResultThread();
+			break;
+		case R.id.gen_top_btn:
+			MessageUtils.sendMessage(mViewPagerHandler, R.id.gen_top_btn, null);
+			break;
+		case R.id.top_setup_btn:
+			MessageUtils.sendMessage(mViewPagerHandler, R.id.top_setup_btn,
+					null);
+			break;
+		case R.id.next_setup_btn:
+			MessageUtils.sendMessage(mViewPagerHandler, R.id.next_setup_btn,
+					null);
+			break;
+		case R.id.bottom_btn:
+			MessageUtils.sendMessage(mViewPagerHandler, R.id.bottom_btn, null);
+			break;
+		default:
+			break;
+		}
+	}
+
+	/**
+	 * 获取生成详细结果线程 startGenResultThread: <br/>
+	 * 
+	 * @author wang
+	 * @since JDK 1.6
+	 */
+	private void startGenResultThread()
+	{
+
+		new Thread(new Runnable()
+		{
+
+			@Override
+			public void run()
+			{
+				try
+				{
+					DetailResult detailResult = HttpService
+							.sendGenResultData(appContext);
+					MessageUtils.sendMessage(mHandler, R.id.gen_detail_result,
+							detailResult);
+
+				} catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}
 }
