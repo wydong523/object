@@ -15,6 +15,7 @@ import android.os.Bundle;
 
 import com.gc.jingzhengu.app.AppContext;
 import com.gc.jingzhengu.app.AppManager;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * ClassName:BaseActivity <br/>
@@ -34,6 +35,8 @@ public class BaseActivity extends Activity
 	protected SharedPreferences configPres;
 
 	public static final int SUCCESS = 100;
+
+	protected ImageLoader imageLoader = ImageLoader.getInstance();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

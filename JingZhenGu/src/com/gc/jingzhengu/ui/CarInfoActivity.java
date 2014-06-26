@@ -13,6 +13,7 @@ import java.util.Calendar;
 
 import com.gc.jingzhengu.R;
 import com.gc.jingzhengu.app.ActivityHelp;
+import com.gc.jingzhengu.app.AppContext;
 import com.gc.jingzhengu.app.HttpService;
 import com.gc.jingzhengu.uitls.MessageUtils;
 import com.gc.jingzhengu.view.CustomerDataPickerDialog;
@@ -81,6 +82,7 @@ public class CarInfoActivity extends BaseActivity implements OnClickListener
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.car_info);
+		appContext = (AppContext) getApplication();
 		mHandler = getHandler();
 		car = (Car) getIntent().getSerializableExtra("car");
 		System.out.println("car is  " + car);
@@ -163,6 +165,7 @@ public class CarInfoActivity extends BaseActivity implements OnClickListener
 		switch (v.getId()) {
 		case R.id.car_info_year_month_btn:
 			final Calendar c = Calendar.getInstance();
+			System.out.println(c.get(Calendar.YEAR));
 			CustomerDataPickerDialog mDatepicker = new CustomerDataPickerDialog(
 					this, mDateSetListner, true, true, false,
 					c.get(Calendar.YEAR), c.get(Calendar.MONTH),
@@ -206,6 +209,8 @@ public class CarInfoActivity extends BaseActivity implements OnClickListener
 				{
 					PriceRange priceRange = HttpService
 							.getSimpleAssessmentPrice(simpleAssessment);
+					appContext.getmCarDamage().setAppraiseReportId(
+							priceRange.getAppraiseReportId());
 					MessageUtils.sendMessage(mHandler, R.id.pricerange,
 							priceRange);
 				} catch (Exception e)

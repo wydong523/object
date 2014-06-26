@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
@@ -84,6 +85,12 @@ import com.gc.jingzhengu.vo.ModelList;
 import com.gc.jingzhengu.vo.Style;
 import com.gc.jingzhengu.vo.StyleCategory;
 import com.gc.jingzhengu.vo.StyleList;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 /**
  * ClassName:IndexCarActivity <br/>
@@ -235,6 +242,27 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 	 */
 	private int mMakeListOldPosition = -1;
 
+	/**
+	 * 图片加载配置选项
+	 */
+	private DisplayImageOptions mOptions;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.index_car);
+		init();
+		mHandler = getHandler();
+		mOptions = new DisplayImageOptions.Builder()
+				.showImageOnLoading(R.drawable.jingzhengu)
+				.showImageForEmptyUri(R.drawable.jingzhengu)
+				.showImageOnFail(R.drawable.jingzhengu).cacheInMemory(true)
+				.cacheOnDisk(true).considerExifParams(true)
+				.displayer(new RoundedBitmapDisplayer(20)).build();
+
+	}
+
 	private Handler getHandler()
 	{
 		return new Handler()
@@ -341,6 +369,7 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 					map = new HashMap<String, Object>();
 					map.put("name", makes.get(i).getMakeName());
 					map.put("fontColor", makes.get(i).getFontColor());
+					map.put("logo", makes.get(i).getMakeLogo());
 					contactSort = ChineseUtil
 							.getFullSpell(map.get("name").toString())
 							.toUpperCase().substring(0, 1);
@@ -413,14 +442,28 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 		}
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
+	private static class AnimateFirstDisplayListener extends
+			SimpleImageLoadingListener
 	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.index_car);
-		init();
-		mHandler = getHandler();
 
+		static final List<String> displayedImages = Collections
+				.synchronizedList(new LinkedList<String>());
+
+		@Override
+		public void onLoadingComplete(String imageUri, View view,
+				Bitmap loadedImage)
+		{
+			if (loadedImage != null)
+			{
+				ImageView imageView = (ImageView) view;
+				boolean firstDisplay = !displayedImages.contains(imageUri);
+				if (firstDisplay)
+				{
+					FadeInBitmapDisplayer.animate(imageView, 500);
+					displayedImages.add(imageUri);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -442,12 +485,6 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 		{
 			mCarYearstyleDrawer.close();
 		}
-	}
-
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
 	}
 
 	@Override
@@ -736,8 +773,7 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 		@Override
 		public void onTouchingLetterChanged(final String s)
 		{
-			System.out.println(index.size());
-			if (index.get(s) != null)
+			if (index != null && index.get(s) != null)
 			{
 				int position = index.get(s);
 				mIndexCarListView.setSelection(position);
@@ -751,8 +787,19 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 
 	}
 
+	/**
+	 * 品牌列表适配器 ClassName: ListAdapter <br/>
+	 * Function: TODO ADD FUNCTION. <br/>
+	 * Reason: TODO ADD REASON. <br/>
+	 * date: 2014-6-26 下午1:17:09 <br/>
+	 * 
+	 * @author wang
+	 * @version IndexCarActivity
+	 * @since JDK 1.6
+	 */
 	class ListAdapter extends BaseAdapter
 	{
+		private ImageLoadingListener mAnimateFirstListener = new AnimateFirstDisplayListener();
 		private LayoutInflater inflater;
 		private List<Map<String, Object>> list;
 
@@ -822,6 +869,11 @@ public class IndexCarActivity extends BaseActivity implements OnClickListener,
 			holder.name.setText(list.get(position).get("name").toString());
 			holder.name.setTextColor((Integer) list.get(position).get(
 					"fontColor"));
+
+			String imgUrl = (String) list.get(position).get("logo");
+			// 品牌logo异步加载
+			imageLoader.displayImage(imgUrl, holder.iamge, mOptions,
+					mAnimateFirstListener);
 			String currentStr = list.get(position).get("Sort").toString();
 			String previewStr = (position - 1) >= 0 ? list.get(position - 1)
 					.get("Sort").toString() : " ";

@@ -152,6 +152,11 @@ public class CarDetailInfoActivity extends BaseActivity implements
 	 */
 	private ArrayList<Province> provinces;
 
+	/**
+	 * 市结果集
+	 */
+	private ArrayList<City> cities;
+
 	private List<SimpleList> list;
 
 	private Simple2Adapter simple2Adpter;
@@ -212,7 +217,7 @@ public class CarDetailInfoActivity extends BaseActivity implements
 			private void assemblyCityList(Message msg)
 			{
 				CityList cityList = (CityList) msg.obj;
-				ArrayList<City> cities = cityList.getCitys();
+				cities = cityList.getCitys();
 				List<String> list = new ArrayList<String>();
 				for (City city : cities)
 				{
@@ -405,6 +410,12 @@ public class CarDetailInfoActivity extends BaseActivity implements
 					View.INVISIBLE, View.VISIBLE);
 			break;
 		case R.id.car_info_price_btn:
+			String price = mCarDetailInfoCctualPriceEdit.getText().toString();
+			if (price.length() > 0)
+			{
+				appContext.getmCarDamage().setPurchasePrice(
+						Integer.parseInt(price));
+			}
 			ActivityHelp.startActivity(this, InjureDetailActivity.class);
 			break;
 		default:
@@ -589,6 +600,7 @@ public class CarDetailInfoActivity extends BaseActivity implements
 		case R.id.car_detail_info_province_content:
 			isProvinceClick = true;
 			// 开启查询线程
+			mProvinceContentListClickPostion = position;
 			startCityThread();
 			// 如果城市选择列表没有开启则打开列表
 			if (!mCarDetailInfoCityDrawer.isOpened())
@@ -597,7 +609,6 @@ public class CarDetailInfoActivity extends BaseActivity implements
 					.findViewById(R.id.car_list_content_name);
 			// 赋值当前选择省份
 			mProvince = name.getText().toString();
-			mProvinceContentListClickPostion = position;
 			// 修改当前选中项字体颜色
 			list.get(mProvinceContentListClickPostion).setColor(
 					getResources().getColor(R.color.list_click));
@@ -621,6 +632,8 @@ public class CarDetailInfoActivity extends BaseActivity implements
 
 				mCarDetailInfoRegistrationSiteText.setText(mProvince + ","
 						+ mCity);
+				appContext.getmCarDamage().setLicenseCityId(
+						cities.get(mCityContentListClickPostion).getId());
 				if (mCarDetailInfoProvinceDrawer.isOpened())
 				{
 					mCarDetailInfoProvinceDrawer.animateClose();
@@ -642,6 +655,7 @@ public class CarDetailInfoActivity extends BaseActivity implements
 				mCarDetailInfoColorDrawer.close();
 			}
 			mCarDetailInfoCarColorText.setText(mColor);
+			appContext.getmCarDamage().setBodyColor(mColor);
 			break;
 		default:
 			break;
@@ -663,6 +677,9 @@ public class CarDetailInfoActivity extends BaseActivity implements
 				{
 					CityList cityList = HttpService.getCityList(province
 							.getId());
+					// 添加省id到生成结果对象中去
+					appContext.getmCarDamage().setLicenseProvId(
+							province.getId());
 					MessageUtils.sendMessage(mHandler, R.id.cityList, cityList);
 				} catch (Exception e)
 				{
@@ -750,25 +767,20 @@ public class CarDetailInfoActivity extends BaseActivity implements
 	 * @param view
 	 *            代表ListView中的内容
 	 * @since JDK 1.6
+	 * 
+	 *        private void modifyProvinceTextViewColor(int carListContentName,
+	 *        int position, AdapterView<?> parent, View view) { TextView name =
+	 *        (TextView) view.findViewById(carListContentName);
+	 *        name.setTextColor(getResources().getColor(R.color.list_click)); //
+	 *        赋值当前选择省份 mProvince = name.getText().toString(); if
+	 *        (mProvinceContentListClickPostion >= 0 &&
+	 *        mProvinceContentListClickPostion != position) { TextView oldName =
+	 *        (TextView) ((ListView) parent).getChildAt(
+	 *        mProvinceContentListClickPostion).findViewById(
+	 *        R.id.car_list_content_name);
+	 *        oldName.setTextColor(getResources().getColor(R.color.black_font));
+	 *        } mProvinceContentListClickPostion = position; }
 	 */
-	private void modifyProvinceTextViewColor(int carListContentName,
-			int position, AdapterView<?> parent, View view)
-	{
-		TextView name = (TextView) view.findViewById(carListContentName);
-		name.setTextColor(getResources().getColor(R.color.list_click));
-		// 赋值当前选择省份
-		mProvince = name.getText().toString();
-		if (mProvinceContentListClickPostion >= 0
-				&& mProvinceContentListClickPostion != position)
-		{
-			TextView oldName = (TextView) ((ListView) parent).getChildAt(
-					mProvinceContentListClickPostion).findViewById(
-					R.id.car_list_content_name);
-			oldName.setTextColor(getResources().getColor(R.color.black_font));
-		}
-		mProvinceContentListClickPostion = position;
-	}
-
 	@Override
 	protected void onPause()
 	{
@@ -804,8 +816,10 @@ public class CarDetailInfoActivity extends BaseActivity implements
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth)
 		{
-			mCarDetailInfoInsuranceDateText.setText(year + "月"
-					+ (monthOfYear + 1) + "日");
+			mCarDetailInfoInsuranceDateText.setText(year + "-"
+					+ (monthOfYear + 1) + "-01");
+			appContext.getmCarDamage().setInsuranceExpireDate(
+					year + "-" + (monthOfYear + 1) + "-01");
 		}
 	};
 
@@ -816,8 +830,10 @@ public class CarDetailInfoActivity extends BaseActivity implements
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth)
 		{
-			mCarDetailInfoAnnualInspectionDateText.setText(year + "月"
-					+ (monthOfYear + 1) + "日");
+			mCarDetailInfoAnnualInspectionDateText.setText(year + "-"
+					+ (monthOfYear + 1) + "-01");
+			appContext.getmCarDamage().setInspectionExpireDate(
+					year + "-" + (monthOfYear + 1) + "-01");
 		}
 	};
 
