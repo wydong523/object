@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <item name="login_success" type="id"/>
+    <item name="login_failure" type="id"/>
+    <item name="camera_success" type="id"/>
+    <item name="camera_failure" type="id"/>
+    <item name="camera_upload" type="id"/>
+    <item name="no_network" type="id"/>
+
+</resources>

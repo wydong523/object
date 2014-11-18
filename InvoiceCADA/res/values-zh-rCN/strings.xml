@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string name="upload">正在上传图片中&#8230;</string>
+    <string name="upload_success">图片已经成功上传服务器，请继续拍摄上传！</string>
+    <string name="upload_failure">图片上传服务器失败，请继续重新拍摄！</string>
+    <string name="no_network">系统检测到您没有链接网络，请确定网络是否打开！</string>
+    <string name="login_failure">登陆失败，输入的用户名和密码有误！</string>
+    <string name="login_success">尊敬的用户，您已登陆成功！</string>
+
+</resources>
