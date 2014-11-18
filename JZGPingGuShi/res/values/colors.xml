@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black_font">#ff000000</color>
+    <color name="car_info">#666666</color>
+    <color name="car_info2">#ededed</color>
+    <color name="car_info3">#333333</color>
+    <color name="car_info4">#999999</color>
+    <color name="list_click">#FFCC00</color>
+    <color name="price_color">#fc8318</color>
+    <color name="categroy_title">#3399cc</color>
+    <color name="title">#eef3fc</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <!-- 首页背景 -->
+    <color name="global_bg">#f2f9fe</color>
+    <color name="green">#58cb2a</color>
+
+</resources>

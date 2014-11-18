@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <item name="chache" type="id"/>
+    <item name="guche" type="id"/>
+    <item name="no_select" type="id"/>
+    <item name="makelist" type="id"/>
+    <item name="modellist" type="id"/>
+    <item name="stylelist" type="id"/>
+    <item name="provinceList" type="id"/>
+    <item name="cityList" type="id"/>
+    <item name="pricerange" type="id"/>
+    <item name="gen_detail_result" type="id"/>
+    <item name="gen_1" type="id"/>
+    <item name="gen_2" type="id"/>
+    <item name="gen_3" type="id"/>
+    <item name="gen_4" type="id"/>
+    <item name="net_error" type="id"/>
+    <item name="hide_footer" type="id"/>
+    <item name="login" type="id"/>
+    <item name="start_offer_activity" type="id"/>
+    <item name="upload_price_success" type="id"/>
+    <item name="upload_price_faild" type="id"/>
+    <item name="user_apply" type="id"/>
+</resources>

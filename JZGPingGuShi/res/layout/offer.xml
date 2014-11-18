@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/title" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/offerTitle"
+            android:textColor="@color/white"
+            android:textSize="@dimen/standard_padding" />
+
+        <ImageButton
+            android:id="@+id/return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/return_btn" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/carLevel"
+                android:layout_width="90dip"
+                android:layout_height="110dip"
+                android:layout_margin="20dip" />
+
+            <ImageView
+                android:id="@+id/imgUrl"
+                android:layout_width="150dip"
+                android:layout_height="100dip"
+                android:layout_margin="20dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="宝马 Z4 2011款 3.0 V8 SLS 豪华天窗导航版"
+                android:textColor="@color/car_info3"
+                android:textSize="@dimen/standard_padding" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/registDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:text="上牌时间：2014年3月"
+                    android:textColor="@color/car_info" />
+
+                <TextView
+                    android:id="@+id/mileage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:text="行驶里程：3万公里"
+                    android:textColor="@color/car_info" />
+
+                <TextView
+                    android:id="@+id/bodyColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:text="车身颜色：黑色"
+                    android:textColor="@color/car_info" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/insuranceExpireDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:text="保险到期：2015年12月"
+                    android:textColor="@color/car_info" />
+
+                <TextView
+                    android:id="@+id/inspectionExpireDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:text="年检到期：2015年12月"
+                    android:textColor="@color/car_info" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/priceRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:text="你的车辆属于B级，目前市场价格区间为2210.00-4322.00万元。"
+            android:textColor="@color/car_info3"
+            android:textSize="@dimen/standard_padding" />
+
+        <RelativeLayout
+            style="@style/editview_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="50dp" >
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:inputType="numberDecimal"
+                android:maxLength="6"
+                android:singleLine="true"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="万元"
+                android:textColor="@color/car_info"
+                android:textSize="@dimen/standard_padding" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/offer_sure"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="50dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="50dip"
+            android:background="@drawable/info_btn"
+            android:text="@string/offerSure"
+            android:textColor="@color/white"
+            android:textSize="@dimen/standard_padding" />
+    </LinearLayout>
+
+</LinearLayout>

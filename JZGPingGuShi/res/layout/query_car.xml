@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/logo_title_include" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/select_bg"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/with_price_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="3" >
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="3dip"
+                android:gravity="center_vertical"
+                android:text="按价格"
+                android:textColor="@color/car_info3"
+                android:textSize="@dimen/standard_padding" />
+
+            <ImageView
+                android:id="@+id/price_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/text1"
+                android:background="@drawable/sort_c" />
+
+            <ImageView
+                android:layout_width="2dip"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="3dip"
+                android:layout_marginTop="3dip"
+                android:background="@drawable/line_a" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/with_year_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="3" >
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="3dip"
+                android:gravity="center_vertical"
+                android:text="按车龄"
+                android:textColor="@color/car_info3"
+                android:textSize="@dimen/standard_padding" />
+
+            <ImageView
+                android:id="@+id/year_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="3dip"
+                android:layout_toRightOf="@+id/text2"
+                android:background="@drawable/sort_c" />
+
+            <ImageView
+                android:layout_width="2dip"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="3dip"
+                android:layout_marginTop="3dip"
+                android:background="@drawable/line_a" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/with_km_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="4" >
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="3dip"
+                android:gravity="center_vertical"
+                android:text="按行驶里程"
+                android:textColor="@color/car_info3"
+                android:textSize="@dimen/standard_padding" />
+
+            <ImageView
+                android:id="@+id/km_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/text3"
+                android:background="@drawable/sort_c" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="@drawable/bottom_line" />
+
+    <RelativeLayout
+        android:id="@+id/recommend_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:layout_marginBottom="15dip"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/text11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="15dip"
+            android:text="抱歉，您所选择的车型暂无评估报告，请查看以下"
+            android:textColor="@color/car_info4" />
+
+        <TextView
+            android:id="@+id/text22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/text11"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="15dip"
+            android:text="热门车型报告或"
+            android:textColor="@color/car_info4" />
+
+        <Button
+            android:id="@+id/query_other_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/text22"
+            android:layout_alignBottom="@+id/text22"
+            android:layout_toRightOf="@+id/text22"
+            android:background="@drawable/query_btn_bg"
+            android:text="查看其它车型报告"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <com.gc.jzgpinggushi.view.pulllist.XListView
+        android:id="@+id/car_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/split_line1"
+        android:footerDividersEnabled="false"
+        android:scrollbars="none" >
+    </com.gc.jzgpinggushi.view.pulllist.XListView>
+
+</LinearLayout>
