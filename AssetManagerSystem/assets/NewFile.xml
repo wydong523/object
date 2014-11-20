@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    id="10003"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10001"
+        layout_toRightOf="10002"
+        hint="请输入发票编号"
+        inputType="number"
+        parentId="10003"
+        type="EditText" />
+
+    <TextView
+        id="10002"
+        layout_alignBaseline="10001"
+        layout_alignBottom="10001"
+        parentId="10003"
+        text="发票编号："
+        type="TextView" />
+
+</RelativeLayout> <!-- ===================== -->
+<RelativeLayout
+    id="10004"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10005"
+        layout_toRightOf="10006"
+        hint="请输入姓名"
+        inputType="number"
+        parentId="10004"
+        type="EditText" />
+
+    <TextView
+        id="10006"
+        layout_alignBaseline="10005"
+        layout_alignBottom="10005"
+        parentId="10004"
+        text="姓        名："
+        type="TextView" />
+
+</RelativeLayout> <!-- ===================== -->
+<RelativeLayout
+    id="10007"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10008"
+        layout_toRightOf="10009"
+        hint="请输入单位"
+        inputType="number"
+        parentId="10007"
+        type="EditText" />
+
+    <TextView
+        id="10009"
+        layout_alignBaseline="10008"
+        layout_alignBottom="10008"
+        parentId="10007"
+        text="单        位："
+        type="TextView" />
+
+</RelativeLayout> <!-- ===================== -->
+<RelativeLayout
+    id="10010"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10011"
+        layout_toRightOf="10012"
+        hint="请输入职务"
+        inputType="number"
+        parentId="10010"
+        type="EditText" />
+
+    <TextView
+        id="10012"
+        layout_alignBaseline="10011"
+        layout_alignBottom="10011"
+        parentId="10010"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout> <!-- ===================== -->
+<RelativeLayout
+    id="10013"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10014"
+        layout_toRightOf="10015"
+        hint="请输入地址"
+        inputType="number"
+        parentId="10013"
+        type="EditText" />
+
+    <TextView
+        id="10015"
+        layout_alignBaseline="10014"
+        layout_alignBottom="10014"
+        parentId="10013"
+        text="地        址："
+        type="TextView" />
+
+</RelativeLayout> <!-- ===================== -->
+<RelativeLayout
+    id="10016"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10017"
+        layout_toRightOf="10018"
+        hint="请输入职务10016"
+        inputType="number"
+        parentId="10016"
+        type="EditText" />
+
+    <TextView
+        id="10018"
+        layout_alignBaseline="10017"
+        layout_alignBottom="10017"
+        parentId="10016"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout><!-- ============================== -->
+<RelativeLayout
+    id="10019"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10020"
+        layout_toRightOf="10021"
+        hint="请输入职务10019"
+        inputType="number"
+        parentId="10019"
+        type="EditText" />
+
+    <TextView
+        id="10021"
+        layout_alignBaseline="10020"
+        layout_alignBottom="10020"
+        parentId="10019"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout> <!-- ======== -->
+<RelativeLayout
+    id="10022"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10023"
+        layout_toRightOf="10024"
+        hint="请输入职务10022"
+        inputType="number"
+        parentId="10022"
+        type="EditText" />
+
+    <TextView
+        id="10024"
+        layout_alignBaseline="10023"
+        layout_alignBottom="10023"
+        parentId="10022"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout><!-- ======== -->
+
+<RelativeLayout
+    id="10025"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10026"
+        layout_toRightOf="10027"
+        hint="请输入职务10025"
+        inputType="number"
+        parentId="10025"
+        type="EditText" />
+
+    <TextView
+        id="10027"
+        layout_alignBaseline="10026"
+        layout_alignBottom="10026"
+        parentId="10025"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout><!-- =================== -->
+<RelativeLayout
+    id="10028"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10029"
+        layout_toRightOf="10030"
+        hint="请输入职务10028"
+        inputType="number"
+        parentId="10028"
+        type="EditText" />
+
+    <TextView
+        id="10030"
+        layout_alignBaseline="10029"
+        layout_alignBottom="10029"
+        parentId="10028"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout>
+<!-- =================== -->
+
+<RelativeLayout
+    id="10031"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10032"
+        layout_toRightOf="10033"
+        hint="请输入职务10031"
+        inputType="number"
+        parentId="10031"
+        type="EditText" />
+
+    <TextView
+        id="10033"
+        layout_alignBaseline="10032"
+        layout_alignBottom="10032"
+        parentId="10031"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout>
+<!-- =================== -->
+
+<RelativeLayout
+    id="10034"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10035"
+        layout_toRightOf="10036"
+        hint="请输入职务10034"
+        inputType="number"
+        parentId="10034"
+        type="EditText" />
+
+    <TextView
+        id="10036"
+        layout_alignBaseline="10035"
+        layout_alignBottom="10035"
+        parentId="10034"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout>
+<!-- =================== -->
+<RelativeLayout
+    id="10037"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10038"
+        layout_toRightOf="10039"
+        hint="请输入职务10037"
+        inputType="number"
+        parentId="10037"
+        type="EditText" />
+
+    <TextView
+        id="10039"
+        layout_alignBaseline="10038"
+        layout_alignBottom="10038"
+        parentId="10037"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout>
+<!-- =================== -->
+
+<RelativeLayout
+    id="10040"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10041"
+        layout_toRightOf="10042"
+        hint="请输入职务10040"
+        inputType="number"
+        parentId="10040"
+        type="EditText" />
+
+    <TextView
+        id="10042"
+        layout_alignBaseline="10041"
+        layout_alignBottom="10041"
+        parentId="10040"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout>

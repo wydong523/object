@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>
+
+<!-- <RelativeLayout
+    id="10040"
+    type="RelativeLayout" >
+
+    <EditText
+        id="10041"
+        layout_toRightOf="10042"
+        hint="请输入职务10040"
+        inputType="number"
+        parentId="10040"
+        type="EditText" />
+
+    <TextView
+        id="10042"
+        layout_alignBaseline="10041"
+        layout_alignBottom="10041"
+        parentId="10040"
+        text="职        务："
+        type="TextView" />
+
+</RelativeLayout> -->
